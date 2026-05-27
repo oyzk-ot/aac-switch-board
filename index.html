@@ -1,0 +1,2046 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#15181d">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="U002 AAC">
+<title>U002 AAC</title>
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<style>
+:root{
+  --bg:#15181d; --panel:#1f242c; --ink:#f4f6f8; --sub:#aab3bf;
+  --cell:#262d37; --cell-line:#3a4452;
+  --kana:#243447; --kana-line:#3f5b78; --kana-ink:#eaf4ff;
+  --hl:#f0a83c; --hl-ink:#1a1205; --ok:#56c08a; --blk:#3d6ea5;
+  --cell-fs:40px; --out-fs:40px; --hl-scale:1.06;
+  --radius:14px; --gap:10px; --motion:1;
+  --fontstack:"Hiragino Maru Gothic ProN","Yu Gothic","Yu Gothic UI","Meiryo",system-ui,sans-serif;
+}
+*{ box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+html,body{ margin:0; height:100%; width:100%; }
+body{
+  background:var(--bg); color:var(--ink); font-family:var(--fontstack);
+  overflow:hidden; user-select:none; -webkit-user-select:none;
+}
+.wrap{
+  height:100vh; height:100dvh; display:flex; flex-direction:column;
+  padding:12px; gap:10px; overflow:hidden;
+}
+.outbar{
+  background:var(--panel); border:2px solid var(--cell-line); border-radius:var(--radius);
+  padding:10px 16px; flex:0 0 auto; display:flex; align-items:center; gap:14px;
+  min-height:64px; max-height:18vh;
+}
+.outtext{
+  flex:1; font-size:var(--out-fs); font-weight:600; line-height:1.25;
+  word-break:break-all; overflow:hidden; max-height:16vh;
+}
+.outtext .caret{ color:var(--hl); font-weight:700; }
+.outtext:empty::after{ content:"…"; color:var(--sub); }
+.board{ flex:1 1 auto; display:flex; min-height:0; }
+.grid{ flex:1; display:grid; gap:var(--gap); min-height:0; }
+.cell{
+  background:var(--cell); border:2px solid var(--cell-line); border-radius:var(--radius);
+  display:flex; align-items:center; justify-content:center;
+  font-size:var(--cell-fs); font-weight:600; color:var(--ink);
+  text-align:center; padding:4px; overflow:hidden; cursor:pointer;
+  transition: transform calc(.12s*var(--motion)), background .1s, border-color .1s;
+}
+.cell.kana{ background:var(--kana); border-color:var(--kana-line); color:var(--kana-ink); }
+.cell.fn{ font-size:calc(var(--cell-fs)*.6); color:var(--sub); background:#20262f; }
+.cell.mod{ font-size:calc(var(--cell-fs)*.66); color:#ffe0b8; background:#3a2e1c; border-color:#6a5128; }
+.cell.back{ font-size:calc(var(--cell-fs)*.62); color:#ffd9a0; background:#33291a; border-color:#5a4422; }
+.cell.read{ font-size:calc(var(--cell-fs)*.62); color:#bfe8ff; background:#1d2c34; border-color:#36505e; }
+.cell.plain{ background:#2c3a30; border-color:#46694f; color:#d6f5e0; }
+
+/* A-1：呼ぶ／はい／いいえ。明確に他セルと色を分ける */
+.cell.call{ background:#4a1f24; border-color:#a8434f; color:#ffe2e6;
+  font-size:calc(var(--cell-fs)*.7); font-weight:700; }
+.cell.yes { background:#1f3a2a; border-color:#56c08a; color:#d6f5e0;
+  font-size:calc(var(--cell-fs)*.7); font-weight:700; }
+.cell.no  { background:#33291a; border-color:#b3884f; color:#ffe6c2;
+  font-size:calc(var(--cell-fs)*.7); font-weight:700; }
+
+.cell.scan{ background:var(--hl); color:var(--hl-ink); border-color:var(--hl);
+  transform:scale(var(--hl-scale)); z-index:2; }
+.cell.scan.pulse{ animation: pl calc(1.1s/max(var(--motion),.001)) ease-in-out infinite; }
+.cell:active{ filter:brightness(1.25); }
+@keyframes pl{
+  0%,100%{ box-shadow:0 0 0 0 rgba(240,168,60,0); }
+  50%{ box-shadow:0 0 0 8px rgba(240,168,60,.28); }
+}
+
+/* 行選択の大文字単独表示（v0.9.2：U002の認知に合わせる） */
+.cell.big{ font-size:calc(var(--cell-fs)*2.0); font-weight:800; letter-spacing:0; }
+.cell.kana.big{ background:var(--kana); border-color:var(--kana-line); color:var(--kana-ink); }
+
+/* v0.9.2 修正：ハイライト(scan)は他のセル種別より後に再宣言して優先度を確保。
+   .cell.kana.big.scan のような複合状態でも黄色ハイライトが消えないようにする。 */
+.cell.scan,
+.cell.kana.scan,
+.cell.kana.big.scan,
+.cell.big.scan,
+.cell.call.scan, .cell.yes.scan, .cell.no.scan,
+.cell.mod.scan, .cell.back.scan, .cell.read.scan, .cell.plain.scan, .cell.fn.scan{
+  background:var(--hl) !important;
+  color:var(--hl-ink) !important;
+  border-color:var(--hl) !important;
+  transform:scale(var(--hl-scale));
+  z-index:2;
+}
+
+/* Yes/No 専用画面（v0.9.2） */
+#scrYN .yn-grid{
+  display:grid; grid-template-columns:1fr 1fr; gap:24px;
+  width:min(900px,92vw); height:min(60vh,520px);
+}
+#scrYN .yn-cell{
+  border-radius:24px; border:4px solid var(--cell-line);
+  display:flex; align-items:center; justify-content:center;
+  font-size:min(28vw,180px); font-weight:900; cursor:pointer;
+  transition:transform .12s, background .1s, border-color .1s;
+}
+#scrYN .yn-yes{ background:#1f3a2a; border-color:#56c08a; color:#d6f5e0; }
+#scrYN .yn-no { background:#33291a; border-color:#b3884f; color:#ffe6c2; }
+#scrYN .yn-cell.scan{ background:var(--hl); color:var(--hl-ink); border-color:var(--hl);
+  transform:scale(1.04); }
+#scrYN .yn-cell:active{ filter:brightness(1.25); }
+#ynBurst{
+  position:absolute; inset:0; display:none; align-items:center; justify-content:center;
+  background:rgba(0,0,0,.78); z-index:55; font-weight:900;
+  font-size:min(45vw,400px); color:#fff; text-align:center;
+}
+#ynBurst.yes{ color:#aef0c6; }
+#ynBurst.no { color:#ffd9a0; }
+#ynBurst.on{ display:flex; }
+#ynBack{
+  position:absolute; left:12px; bottom:12px; background:#2b333d;
+  border:2px solid var(--cell-line); border-radius:12px;
+  color:var(--ink); font-family:inherit; font-size:16px; font-weight:600;
+  padding:10px 18px; cursor:pointer; z-index:50;
+}
+
+.switchbar{ flex:0 0 auto; display:flex; gap:12px; align-items:stretch; min-height:56px; }
+.bigswitch{
+  flex:1; background:#2b333d; border:2px solid var(--cell-line);
+  border-radius:var(--radius); color:var(--ink); font-size:22px; font-weight:700;
+  padding:12px; font-family:inherit;
+}
+.bigswitch:active{ background:var(--hl); color:var(--hl-ink); }
+.bigswitch.move:active{ background:var(--blk); color:#fff; }
+.modechip{ align-self:center; color:var(--sub); font-size:13px;
+  white-space:normal; max-width:32%; line-height:1.3; }
+
+.screen{ position:absolute; inset:0; display:none; }
+.screen.on{ display:block; }
+.center{
+  height:100vh; height:100dvh; display:flex; flex-direction:column;
+  align-items:center; justify-content:center; gap:16px; padding:24px;
+  text-align:center; overflow:auto;
+}
+.menubtn{
+  width:min(560px,90%); background:var(--cell); border:2px solid var(--cell-line);
+  color:var(--ink); font-family:inherit; font-size:28px; font-weight:700;
+  padding:20px; border-radius:var(--radius);
+}
+.menubtn .s{ display:block; font-size:15px; color:var(--sub); font-weight:500; margin-top:6px; }
+h1.title{ font-size:28px; margin:0 0 6px; }
+.lead{ color:var(--sub); font-size:16px; max-width:640px; line-height:1.6; margin:0; }
+
+.tutbox{
+  width:min(680px,92%); background:var(--panel); border:2px solid var(--cell-line);
+  border-radius:18px; padding:24px;
+}
+.tutbox h2{ margin:.1em 0 .3em; font-size:23px; }
+.tutbox p{ color:var(--sub); font-size:17px; line-height:1.7; margin:.4em 0; }
+.demoCell{
+  display:inline-flex; min-width:110px; justify-content:center; background:var(--cell);
+  border:2px solid var(--cell-line); border-radius:14px; padding:16px 20px;
+  font-size:32px; font-weight:700; margin:8px;
+}
+.demoCell.scan{ background:var(--hl); color:var(--hl-ink); border-color:var(--hl); transform:scale(1.07); }
+.praise{ color:var(--ok); font-size:21px; font-weight:700; min-height:1.4em; }
+
+.gear{
+  position:absolute; right:12px; top:12px; width:42px; height:42px; border-radius:50%;
+  background:#222932; border:2px solid var(--cell-line); color:var(--sub); font-size:20px;
+  display:flex; align-items:center; justify-content:center; z-index:50; cursor:pointer;
+}
+
+.setpanel{
+  position:absolute; inset:0; background:#10131a; z-index:60; display:none;
+  overflow:auto; padding:20px;
+}
+.setpanel.on{ display:block; }
+.setpanel h2{ margin:.2em 0 .6em; font-size:21px; }
+.setgrid{
+  display:grid; grid-template-columns:repeat(auto-fill, minmax(310px, 1fr));
+  gap:14px; max-width:1060px;
+}
+.setcard{ background:var(--panel); border:1px solid var(--cell-line); border-radius:12px; padding:14px; }
+.setcard.wide{ grid-column:1/-1; }
+.setcard h3{ margin:0 0 4px; font-size:15px; color:var(--hl); }
+.cardnote{ color:var(--sub); font-size:12px; line-height:1.5; margin:0 0 8px; }
+.field{ margin:14px 0; font-size:14px; }
+.field .flabel{ color:var(--ink); font-size:14px; font-weight:600; margin-bottom:2px; }
+.field .fhelp{ color:var(--sub); font-size:12px; line-height:1.45; margin-bottom:7px; }
+.ctrlrow{ display:flex; align-items:center; gap:10px; }
+.ctrlrow input[type=range]{ flex:1; min-width:120px; }
+.numwrap{
+  display:flex; align-items:center; gap:4px; background:var(--cell);
+  border:2px solid var(--cell-line); border-radius:9px; padding:4px 8px; white-space:nowrap;
+}
+.numwrap input{
+  width:62px; background:transparent; border:none; color:var(--ink);
+  font-family:inherit; font-size:16px; font-weight:700; text-align:right; outline:none;
+}
+.numwrap .unit{ color:var(--sub); font-size:13px; }
+.seg{ display:flex; flex-wrap:wrap; gap:6px; margin-top:6px; }
+.seg button{
+  flex:1; min-width:80px; background:var(--cell); border:2px solid var(--cell-line);
+  color:var(--ink); font-family:inherit; font-size:13px; padding:9px;
+  border-radius:10px; cursor:pointer;
+}
+.seg button.act{ background:var(--hl); color:var(--hl-ink); border-color:var(--hl); }
+.toglabel{ color:var(--ink); font-size:14px; font-weight:600; margin-bottom:2px; }
+.vargrid{ display:grid; grid-template-columns:repeat(auto-fill, minmax(108px, 1fr)); gap:8px; margin-top:8px; }
+.varchip{
+  background:var(--cell); border:2px solid var(--cell-line); border-radius:10px;
+  padding:8px 6px; font-family:inherit; color:var(--sub); font-size:13px;
+  text-align:center; line-height:1.35; cursor:pointer;
+}
+.varchip.on{ background:#2c3a30; border-color:#56c08a; color:#d6f5e0; }
+.varchip b{ display:block; font-size:18px; color:var(--ink); }
+.varbulk{ display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
+.varbulk button{
+  background:var(--cell); border:2px solid var(--cell-line); color:var(--ink);
+  font-family:inherit; font-size:13px; padding:8px 12px; border-radius:9px; cursor:pointer;
+}
+.keycap{
+  display:inline-block; background:var(--cell); border:2px solid var(--cell-line);
+  border-radius:8px; padding:7px 12px; color:var(--ink); font-size:14px;
+  font-family:inherit; min-width:110px;
+}
+.keycap.wait{ border-color:var(--hl); color:var(--hl); cursor:pointer; }
+.setfoot{ margin:16px 0; display:flex; gap:12px; flex-wrap:wrap; }
+.setfoot button{
+  font-family:inherit; font-size:16px; padding:13px 20px; border-radius:12px;
+  border:2px solid var(--cell-line); background:var(--cell); color:var(--ink); cursor:pointer;
+}
+.setfoot button.primary{ background:var(--ok); color:#06231a; border-color:var(--ok); font-weight:700; }
+.note{ color:var(--sub); font-size:12px; line-height:1.6; max-width:1060px; margin-top:12px; }
+.hintbar{ position:absolute; left:12px; bottom:12px; color:var(--sub); font-size:12px; z-index:50; }
+
+/* 評価ログ表示 */
+.evalbox{
+  display:grid; grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));
+  gap:8px 16px; margin-top:8px;
+}
+.evalrow{
+  display:flex; justify-content:space-between; gap:10px;
+  background:var(--cell); border:1px solid var(--cell-line); border-radius:8px;
+  padding:8px 12px; color:var(--sub); font-size:13px;
+}
+.evalrow b{ color:var(--ink); font-size:14px; }
+
+/* A-3：休憩サイン（支援者向け。利用者のスキャン経路には含めない） */
+.rest-banner{
+  position:fixed; right:12px; bottom:12px; max-width:380px; z-index:80;
+  background:#3a2620; border:2px solid #c2705a; border-radius:14px;
+  color:#ffe6dc; padding:14px 16px; box-shadow:0 10px 30px rgba(0,0,0,.45);
+  display:none;
+}
+.rest-banner.on{ display:block; }
+.rest-title{ font-weight:700; font-size:15px; margin-bottom:4px; }
+.rest-detail{ font-size:13px; line-height:1.5; margin-bottom:8px; }
+.rest-close{
+  background:#c2705a; border:none; color:#1a0c08; font-weight:700; font-family:inherit;
+  padding:8px 12px; border-radius:9px; cursor:pointer;
+}
+
+</style>
+</head>
+<body>
+
+<div class="screen on" id="scrHome">
+  <div class="center">
+    <div>
+      <h1 class="title">コミュニケーション <span style="color:var(--sub);font-size:.6em">U002</span></h1>
+      <p class="lead" id="homeLead"></p>
+    </div>
+    <button class="menubtn" data-go="tut">れんしゅう・つかいかた<span class="s">ゲーム感覚で操作を体験（失敗なし）</span></button>
+    <button class="menubtn" data-go="yn" style="background:#1f3a2a;border-color:#56c08a;color:#d6f5e0">はい・いいえ<span class="s" style="color:#aed4bd">ひとつだけ えらんで つたえる</span></button>
+    <button class="menubtn" data-go="board">もじばん<span class="s">五十音で文をつくる</span></button>
+    <button class="menubtn" data-go="phr">ていけいぶん<span class="s">よく使う言葉をえらぶ</span></button>
+  </div>
+  <div class="gear" id="gearHome" title="長押しで設定">⚙</div>
+</div>
+
+<div class="screen" id="scrTut">
+  <div class="center">
+    <div class="tutbox">
+      <h2 id="tutH">れんしゅう</h2>
+      <p id="tutP"></p>
+      <div id="tutStage" style="margin:14px 0"></div>
+      <div class="praise" id="tutPraise"></div>
+    </div>
+    <p class="lead" style="font-size:14px" id="tutFoot"></p>
+  </div>
+  <div class="gear" id="gearTut">⚙</div>
+  <div class="hintbar">画面タップで次へ／スキップ（支援者操作）</div>
+</div>
+
+<div class="screen" id="scrBoard">
+  <div class="wrap">
+    <div class="outbar"><div class="outtext" id="out"></div></div>
+    <div class="board"><div class="grid" id="grid"></div></div>
+    <div class="switchbar">
+      <button class="bigswitch" id="swMove">スイッチ</button>
+      <button class="bigswitch" id="swSel" style="display:none">決定</button>
+      <div class="modechip" id="modeChip"></div>
+    </div>
+  </div>
+  <div class="gear" id="gearBoard">⚙</div>
+</div>
+
+<div class="screen" id="scrYN">
+  <div class="center" style="gap:20px">
+    <h1 class="title" style="font-size:24px;color:var(--sub)">はい・いいえ</h1>
+    <div class="yn-grid">
+      <div class="yn-cell yn-yes" id="ynYes" data-v="yes">○</div>
+      <div class="yn-cell yn-no"  id="ynNo"  data-v="no">×</div>
+    </div>
+    <p class="lead" style="font-size:14px">スイッチで えらんで つたえます</p>
+  </div>
+  <button id="ynBack">↩ もどる</button>
+  <div class="gear" id="gearYN">⚙</div>
+  <div id="ynBurst"></div>
+</div>
+
+<div class="setpanel" id="setPanel">
+  <h2>支援者設定</h2>
+  <div class="setgrid" id="setGrid"></div>
+  <div class="setfoot">
+    <button class="primary" id="setSave">💾 げんざいの 設定を 保存</button>
+    <button id="setClose">とじる（利用者モードへ）</button>
+    <button id="setReset">初期値に戻す</button>
+  </div>
+  <p id="setSaveStatus" style="color:#56c08a;font-size:14px;margin:8px 0;min-height:1.4em"></p>
+  <p class="note">※ 設定は変更したそばから自動保存されますが、「保存」ボタンで明示的に保存もできます。すべての設定・保存文・定型文・評価ログは端末内のみに保存されます（外部送信なし）。<br>
+  ※ 保存が効かない場合：Safariのプライベートモード／サイトデータ削除設定／ファイル直接開き（file://）の可能性があります。公開URL経由で開いてください。<br>
+  ※ 設定・モード／レイアウト／スイッチ切替は支援者タップ操作で、利用者のスキャン経路には含めません（R-1／方針2）。</p>
+</div>
+
+<script>
+"use strict";
+// このファイルは scripts/build_single.py によって自動生成されました。
+// 元ソースは src/*.js を参照してください。
+
+// ──── module: data.js ────
+const __M_data = (() => {
+
+// 静的データ：五十音、機能セル、変形、定型文。
+// 個人情報を含まないこと（U002向けの臨床的選定に留める）。
+
+const ROWS = [
+  ["あ","あ","い","う","え","お"],
+  ["か","か","き","く","け","こ"],
+  ["さ","さ","し","す","せ","そ"],
+  ["た","た","ち","つ","て","と"],
+  ["な","な","に","ぬ","ね","の"],
+  ["は","は","ひ","ふ","へ","ほ"],
+  ["ま","ま","み","む","め","も"],
+  ["や","や","ゆ","よ"],
+  ["ら","ら","り","る","れ","ろ"],
+  ["わ","わ","を","ん"]
+];
+
+const FUNCS = [
+  { t:"、。？",   a:"punc"  },
+  { t:"␣ あけ",   a:"space" },
+  { t:"⌫ 1字",    a:"bs"    },
+  { t:"全消",     a:"clr"   },
+  { t:"ていけい", a:"phr"   },
+  { t:"↩ さいしょ", a:"home" }
+];
+
+const MODFUNCS = [
+  { t:"゛ にごり", a:"daku"  },
+  { t:"゜ ぱぴ",   a:"han"   },
+  { t:"小 ちいさく", a:"small" }
+];
+
+const VARIANTS = {
+  "か":["が"],"き":["ぎ"],"く":["ぐ"],"け":["げ"],"こ":["ご"],
+  "さ":["ざ"],"し":["じ"],"す":["ず"],"せ":["ぜ"],"そ":["ぞ"],
+  "た":["だ"],"ち":["ぢ"],"つ":["づ","っ"],"て":["で"],"と":["ど"],
+  "は":["ば","ぱ"],"ひ":["び","ぴ"],"ふ":["ぶ","ぷ"],"へ":["べ","ぺ"],"ほ":["ぼ","ぽ"],
+  "あ":["ぁ"],"い":["ぃ"],"う":["ぅ","ゔ"],"え":["ぇ"],"お":["ぉ"],
+  "や":["ゃ"],"ゆ":["ゅ"],"よ":["ょ"],"わ":["ゎ"]
+};
+
+const VLABEL = {
+  "が":"゛","ぎ":"゛","ぐ":"゛","げ":"゛","ご":"゛","ざ":"゛","じ":"゛","ず":"゛","ぜ":"゛","ぞ":"゛",
+  "だ":"゛","ぢ":"゛","づ":"゛","で":"゛","ど":"゛","ば":"゛","び":"゛","ぶ":"゛","べ":"゛","ぼ":"゛","ゔ":"゛",
+  "ぱ":"゜","ぴ":"゜","ぷ":"゜","ぺ":"゜","ぽ":"゜",
+  "ぁ":"小","ぃ":"小","ぅ":"小","ぇ":"小","ぉ":"小","ゃ":"小","ゅ":"小","ょ":"小","っ":"小","ゎ":"小"
+};
+
+// 既定で変形候補を出す字。低頻度の小書き(ぁぃぅぇぉ・ゎ)は既定OFF。
+const VARIANT_DEFAULT_ON = {
+  "か":1,"き":1,"く":1,"け":1,"こ":1,"さ":1,"し":1,"す":1,"せ":1,"そ":1,
+  "た":1,"ち":1,"つ":1,"て":1,"と":1,"は":1,"ひ":1,"ふ":1,"へ":1,"ほ":1,
+  "や":1,"ゆ":1,"よ":1,
+  "あ":0,"い":0,"う":0,"え":0,"お":0,"わ":0
+};
+
+const ALL_VAR_KEYS = Object.keys(VARIANTS);
+
+// 既定の定型文（カテゴリ→文）。支援者設定で編集可。
+const DEFAULT_PHRASES = {
+  "からだ": ["きゅういんしてください","たいいをかえてください","いたいです","くるしいです","だいじょうぶです"],
+  "きもち": ["うれしい","つらい","ひとりにして","そばにいて","ありがとう"],
+  "ようじ": ["みずがほしい","トイレ","ねむい","テレビをみたい","おんがくをききたい"],
+  "クラブ": ["かいぎのけん","とりまとめます","てつだってください","あとでへんじします"]
+};
+
+// A-1：「呼ぶ／はい・いいえ」の発話文。設定で文言調整可。
+const DEFAULT_CALL_LABELS = {
+  call: "よんでください",
+  yes:  "はい",
+  no:   "いいえ"
+};
+
+function makeBlocks(splits){
+  if(splits===2) return [[0,1,2,3,4],[5,6,7,8,9]];
+  if(splits===3) return [[0,1,2,3],[4,5,6],[7,8,9]];
+  if(splits===5) return [[0,1],[2,3],[4,5],[6,7],[8,9]];
+  return [[0,1,2,3,4],[5,6,7,8,9]];
+}
+
+function invertVariant(v){
+  for(const k in VARIANTS) if(VARIANTS[k].includes(v)) return k;
+  return null;
+}
+return { ROWS, FUNCS, MODFUNCS, VARIANTS, VLABEL, VARIANT_DEFAULT_ON, ALL_VAR_KEYS, DEFAULT_PHRASES, DEFAULT_CALL_LABELS, makeBlocks, invertVariant };
+})();
+
+// ──── module: state.js ────
+const __M_state = (() => {
+
+// 実行時のモジュール間共有状態（DOM 連動）。
+// グローバル状態を一箇所に集めることで、scan/board/input/tutorial 間の循環依存を避ける。
+
+const state = {
+  screen: "home",       // "home" | "tut" | "board"
+  mode: "kana",         // "kana" | "phrase"
+  stage: "row",         // row / rowIn / char / variant / phrCat / phrList
+  scanItems: [],
+  scanIdx: 0,
+  loops: 0,
+  timer: null,
+  dwellTimer: null,
+  lastMove: 0,
+  lastSel: 0,
+  locked: false,
+  text: "",
+  curRow: null,
+  curBlock: 0,
+  phrCat: null,
+  variantBase: null,
+  // A-2 計測用：直近の paintScan 時刻（選択所要時間の算出に使う）
+  lastPaintAt: 0
+};
+
+// 「セッション」＝同一画面遷移サイクル。評価ログのキー。
+let sessionId = null;
+function startSession(){
+  sessionId = `s_${Date.now().toString(36)}_${Math.random().toString(36).slice(2,6)}`;
+  return sessionId;
+}
+function currentSession(){
+  if (!sessionId) startSession();
+  return sessionId;
+}
+return { state, startSession, currentSession };
+})();
+
+// ──── module: storage.js ────
+const __M_storage = (() => {
+
+// 端末内永続化。localStorage に限定（外部送信ゼロ／§7.4）。
+// キーは "u002_*" で名前空間を切る。
+
+const NS = "u002_aac";
+const K_SETTINGS = NS + ":settings:v1";
+const K_EVAL     = NS + ":evallog:v1";
+const K_SAVED    = NS + ":saved_texts:v1";
+const K_PROFILES = NS + ":profiles:v1";
+
+function safeGet(key, fallback){
+  try {
+    const raw = localStorage.getItem(key);
+    if (!raw) return fallback;
+    return JSON.parse(raw);
+  } catch(_){ return fallback; }
+}
+function safeSet(key, value){
+  try { localStorage.setItem(key, JSON.stringify(value)); return true; }
+  catch(_){ return false; }
+}
+
+function loadSettings(){ return safeGet(K_SETTINGS, null); }
+function saveSettings(obj){ return safeSet(K_SETTINGS, obj); }
+
+function loadEvalLog(){ return safeGet(K_EVAL, []); }
+function saveEvalLog(arr){ return safeSet(K_EVAL, arr); }
+function clearEvalLog(){ safeSet(K_EVAL, []); }
+
+function loadSavedTexts(){ return safeGet(K_SAVED, []); }
+function saveSavedTexts(arr){ return safeSet(K_SAVED, arr); }
+
+function loadProfiles(){ return safeGet(K_PROFILES, {}); }
+function saveProfiles(obj){ return safeSet(K_PROFILES, obj); }
+return { loadSettings, saveSettings, loadEvalLog, saveEvalLog, clearEvalLog, loadSavedTexts, saveSavedTexts, loadProfiles, saveProfiles };
+})();
+
+// ──── module: settings.js ────
+const __M_settings = (() => {
+  const VARIANT_DEFAULT_ON = __M_data.VARIANT_DEFAULT_ON;
+  const DEFAULT_PHRASES = __M_data.DEFAULT_PHRASES;
+  const DEFAULT_CALL_LABELS = __M_data.DEFAULT_CALL_LABELS;
+// 設定値（DEFAULTS と現行値 S）、テーマ、ルート CSS への反映。
+// 全データは端末内のみ。外部送信なし。
+
+const DEFAULTS = {
+  // 入力系
+  switchCount: 1,
+  mode: "A",            // v0.9.2：プレ使用でオートスキャンの反応が良好だったため既定をAに
+  keyMove: "Space",
+  keySelect: "Enter",
+  directTap: true,
+
+  // 盤
+  layout: "a-first",
+  blockSplits: 2,
+
+  // モードA
+  scanIntervalMs: 2500,
+  initialDelayMs: 1200,
+  maxLoops: 2,
+
+  // モードB
+  dwellSelectMs: 2000,
+  stepDebounceMs: 400,
+
+  // 共通
+  acceptInputMs: 120,
+  lockoutMs: 1000,
+
+  // 表示
+  cellFs: 40,
+  outFs: 40,
+  hlScale: 6,
+  autoFit: true,
+  theme: "calm",
+  pulse: false,
+  motion: true,
+
+  // 音
+  scanTick: false,
+  selSound: true,
+  voicePrompt: false,
+
+  // 変形
+  variantStage: true,
+  topModKeys: true,
+  variantOn: Object.assign({}, VARIANT_DEFAULT_ON),
+
+  // A-1：呼ぶ／はい・いいえ 常設アクセス
+  // v0.9.2：文字盤上の常設セルが視覚的に多いとの観察により既定OFF。必要な利用者のみON。
+  callShortcut: false,
+  callLabels: Object.assign({}, DEFAULT_CALL_LABELS),
+
+  // A-3：疲労・休憩サイン
+  fatigueEnabled: true,
+  fatigueActsThreshold: 30,     // 何回の活性で休憩を勧めるか
+  fatigueTimeThresholdMs: 5*60*1000, // 連続使用時間（ミリ秒）
+
+  // A-2：評価ログ
+  evalLogEnabled: true,
+  evalLogCap: 2000,             // 端末内保存件数の上限
+
+  // 定型文（編集可）
+  phrases: JSON.parse(JSON.stringify(DEFAULT_PHRASES))
+};
+
+// 現行設定。loadSettings() で起動時に上書き。
+let S = JSON.parse(JSON.stringify(DEFAULTS));
+
+function replaceSettings(next){
+  // shallow に置き換え（保存復元用）
+  for(const k of Object.keys(S)) delete S[k];
+  Object.assign(S, JSON.parse(JSON.stringify(DEFAULTS))); // 既定で穴埋め
+  Object.assign(S, next);
+  // ネスト値のマージ（追加項目が後から増えた時の互換）
+  S.variantOn = Object.assign({}, DEFAULTS.variantOn, next.variantOn || {});
+  S.callLabels = Object.assign({}, DEFAULTS.callLabels, next.callLabels || {});
+  S.phrases = next.phrases ? JSON.parse(JSON.stringify(next.phrases)) : JSON.parse(JSON.stringify(DEFAULTS.phrases));
+}
+
+const THEMES = {
+  calm:     {bg:"#15181d",panel:"#1f242c",ink:"#f4f6f8",sub:"#aab3bf",cell:"#262d37",line:"#3a4452",hl:"#f0a83c",hlink:"#1a1205",kana:"#243447",kline:"#3f5b78",kink:"#eaf4ff"},
+  ybk:      {bg:"#000000",panel:"#0a0a0a",ink:"#ffe200",sub:"#9a8a00",cell:"#111100",line:"#3a3400",hl:"#ffe200",hlink:"#000000",kana:"#1a1500",kline:"#6a5a00",kink:"#fff2a0"},
+  light:    {bg:"#f4f1ea",panel:"#ffffff",ink:"#1c1b18",sub:"#6b6256",cell:"#ffffff",line:"#cdc6b8",hl:"#0a66c2",hlink:"#ffffff",kana:"#e4eef9",kline:"#9bc0e6",kink:"#0c3a63"},
+  contrast: {bg:"#000000",panel:"#0c0c0c",ink:"#ffffff",sub:"#9aa0a6",cell:"#0c0c0c",line:"#5a5a5a",hl:"#00d2ff",hlink:"#001318",kana:"#08222b",kline:"#1d7f99",kink:"#d6f6ff"}
+};
+
+function keyName(c){
+  return c==="Space" ? "スペース"
+       : c==="Enter" ? "Enter"
+       : c;
+}
+
+function applySettings(){
+  const t = THEMES[S.theme] || THEMES.calm;
+  const r = document.documentElement.style;
+  r.setProperty("--bg", t.bg);
+  r.setProperty("--panel", t.panel);
+  r.setProperty("--ink", t.ink);
+  r.setProperty("--sub", t.sub);
+  r.setProperty("--cell", t.cell);
+  r.setProperty("--cell-line", t.line);
+  r.setProperty("--hl", t.hl);
+  r.setProperty("--hl-ink", t.hlink);
+  r.setProperty("--kana", t.kana);
+  r.setProperty("--kana-line", t.kline);
+  r.setProperty("--kana-ink", t.kink);
+  r.setProperty("--out-fs", S.outFs + "px");
+  r.setProperty("--hl-scale", (1 + S.hlScale/100).toFixed(3));
+  r.setProperty("--motion", S.motion ? 1 : 0.0001);
+
+  const swSel = document.getElementById("swSel");
+  const swMove = document.getElementById("swMove");
+  if (swSel) swSel.style.display = S.switchCount===2 ? "" : "none";
+  if (swMove){
+    swMove.textContent = S.switchCount===2 ? "スイッチ（送り）" : "スイッチ";
+    swMove.classList.toggle("move", S.switchCount===2);
+  }
+
+  const chip = document.getElementById("modeChip");
+  if (chip){
+    let m;
+    if (S.switchCount===2) m = "2スイッチ：送り＋決定";
+    else m = (S.mode==="A" ? "1SW-A：オート" : "1SW-B：押す＝送り／止めて決定");
+    m += " ／ " + (S.layout==="a-first" ? "あ行先頭" : "2次元"+S.blockSplits+"分割");
+    chip.textContent = m;
+  }
+
+  const lead = document.getElementById("homeLead");
+  if (lead){
+    lead.innerHTML =
+      (S.switchCount===2
+        ? `送り＝<b>${keyName(S.keyMove)}</b>／決定＝<b>${keyName(S.keySelect)}</b>`
+        : `スイッチ＝<b>${keyName(S.keyMove)}</b> または画面下のボタン`)
+      + `<br>右上の歯車（長押し）で支援者設定。画面を直接さわっても操作できます。`;
+  }
+  const tutFoot = document.getElementById("tutFoot");
+  if (tutFoot && lead) tutFoot.innerHTML = lead.innerHTML;
+}
+return { DEFAULTS, S, replaceSettings, THEMES, keyName, applySettings };
+})();
+
+// ──── module: tts.js ────
+const __M_tts = (() => {
+  const S = __M_settings.S;
+  const state = __M_state.state;
+// 音声・効果音。iOS 端末内音声のみ（クラウドTTS禁止）。
+
+let AC = null;
+
+function beep(f, ms, vol){
+  try {
+    if (!S.scanTick && f===440) return; // scanTick OFF 時は移動音を出さない
+    AC = AC || new (window.AudioContext || window.webkitAudioContext)();
+    const o = AC.createOscillator(), g = AC.createGain();
+    o.frequency.value = f;
+    o.connect(g); g.connect(AC.destination);
+    g.gain.value = vol || 0.06;
+    o.start(); o.stop(AC.currentTime + ms/1000);
+  } catch(_){}
+}
+
+// iOS Safari は最初のユーザー操作の直接ハンドラ内で一度発話を起動しないと、
+// 以降スキャン経由の自動 onSelect では無音になる仕様。最初のタップで「許可」を確立する。
+let __speechUnlocked = false;
+function unlockSpeech(){
+  if (__speechUnlocked) return;
+  try {
+    if (!("speechSynthesis" in window)) return;
+    const u = new SpeechSynthesisUtterance(" ");
+    u.volume = 0; u.lang = "ja-JP";
+    speechSynthesis.speak(u);
+    __speechUnlocked = true;
+  } catch(_){}
+}
+
+function speak(txt, quiet){
+  let s = (txt !== undefined ? txt : state.text);
+  if (s == null) return;
+  s = String(s).trim();
+  if (!s) return;
+  try {
+    if (!("speechSynthesis" in window)) return;
+    speechSynthesis.cancel(); // 重なり防止
+    const speakNow = () => {
+      const u = new SpeechSynthesisUtterance(s);
+      u.lang = "ja-JP";
+      u.rate = 0.95;
+      if (quiet) u.volume = 0.5;
+      const vs = speechSynthesis.getVoices();
+      const ja = vs.find(v => /ja(-|_)?JP/i.test(v.lang) || /Japanese|日本/i.test(v.name));
+      if (ja) u.voice = ja;
+      speechSynthesis.speak(u);
+    };
+    if (speechSynthesis.getVoices().length === 0){
+      speechSynthesis.onvoiceschanged = () => { speechSynthesis.onvoiceschanged = null; speakNow(); };
+      setTimeout(speakNow, 250);
+    } else {
+      speakNow();
+    }
+  } catch(_){}
+}
+return { beep, unlockSpeech, speak };
+})();
+
+// ──── module: evallog.js ────
+const __M_evallog = (() => {
+  const S = __M_settings.S;
+  const state = __M_state.state;
+  const currentSession = __M_state.currentSession;
+  const loadEvalLog = __M_storage.loadEvalLog;
+  const saveEvalLog = __M_storage.saveEvalLog;
+  const clearLS = __M_storage.clearEvalLog;
+// A-2：評価ログ。端末内のみ。外部送信なし。
+// 試行数・命中/誤り・選択所要時間・「もどる」使用・セッション内推移を記録。
+
+// メモリ上のログ（起動時に LS から復元、shutdown 時に都度書き戻し）。
+let LOG = [];
+
+function bootEvalLog(){
+  LOG = loadEvalLog() || [];
+}
+
+function persist(){
+  // 上限超え時は古い順にカット
+  if (LOG.length > S.evalLogCap){
+    LOG = LOG.slice(LOG.length - S.evalLogCap);
+  }
+  saveEvalLog(LOG);
+}
+
+// kind: "select" | "back" | "wrap" | "call" | "tutpress" | "yesno"
+// detail: 任意のフィールド
+function logEvent(kind, detail = {}){
+  if (!S.evalLogEnabled) return;
+  const ev = {
+    t: Date.now(),
+    s: currentSession(),
+    k: kind,
+    ...detail
+  };
+  LOG.push(ev);
+  persist();
+}
+
+function getAllEvents(){ return LOG.slice(); }
+function clearEvalLog(){ LOG = []; clearLS(); }
+
+// 集計：直近セッションのサマリ。
+function summarize(sessionId){
+  const sid = sessionId || currentSession();
+  const ev = LOG.filter(e => e.s === sid);
+  const selects = ev.filter(e => e.k === "select");
+  const backs   = ev.filter(e => e.k === "back");
+  const wraps   = ev.filter(e => e.k === "wrap");
+  const calls   = ev.filter(e => e.k === "call");
+
+  const dur = selects.map(e => e.dMs).filter(x => typeof x === "number" && x > 0);
+  const avg = dur.length ? Math.round(dur.reduce((a,b)=>a+b,0) / dur.length) : 0;
+  const med = dur.length ? dur.slice().sort((a,b)=>a-b)[Math.floor(dur.length/2)] : 0;
+
+  return {
+    session: sid,
+    trials: selects.length,
+    backs: backs.length,
+    wraps: wraps.length,
+    calls: calls.length,
+    avgDurMs: avg,
+    medDurMs: med
+  };
+}
+
+// CSVテキスト生成（端末内クリップボード等で確認用）。
+function toCSV(){
+  const header = ["t","session","kind","stage","label","dMs","note"].join(",");
+  const lines = LOG.map(e => [
+    new Date(e.t).toISOString(),
+    e.s || "",
+    e.k || "",
+    e.stage || "",
+    `"${(e.label||"").replace(/"/g,'""')}"`,
+    e.dMs ?? "",
+    `"${(e.note||"").replace(/"/g,'""')}"`
+  ].join(","));
+  return [header, ...lines].join("\n");
+}
+return { bootEvalLog, logEvent, getAllEvents, clearEvalLog, summarize, toCSV };
+})();
+
+// ──── module: fatigue.js ────
+const __M_fatigue = (() => {
+  const S = __M_settings.S;
+// A-3：疲労・休憩サイン。
+// 活性回数（選択）と連続使用時間で支援者向けの「休憩」サインを表示する。
+// 利用者のスキャン経路には絶対に出さない。支援者がタップで閉じる。
+
+let acts = 0;
+let sessionStart = Date.now();
+let lastResetAt = Date.now();
+let bannerEl = null;
+let shownForActs = 0;
+let shownForTime = false;
+
+function ensureBanner(){
+  if (bannerEl) return bannerEl;
+  const div = document.createElement("div");
+  div.id = "restBanner";
+  div.className = "rest-banner";
+  div.innerHTML = `
+    <div class="rest-banner-inner">
+      <div class="rest-title">支援者向け：休憩のご検討を</div>
+      <div class="rest-detail" id="restDetail"></div>
+      <button class="rest-close" id="restClose">閉じる（リセット）</button>
+    </div>`;
+  document.body.appendChild(div);
+  div.querySelector("#restClose").addEventListener("click", e => {
+    e.preventDefault(); e.stopPropagation();
+    resetFatigue();
+  });
+  bannerEl = div;
+  return div;
+}
+
+function showBanner(reason){
+  const el = ensureBanner();
+  el.querySelector("#restDetail").textContent = reason;
+  el.classList.add("on");
+}
+
+function hideBanner(){
+  if (bannerEl) bannerEl.classList.remove("on");
+}
+
+function noteActivation(){
+  if (!S.fatigueEnabled) return;
+  acts++;
+  const elapsed = Date.now() - lastResetAt;
+
+  if (acts >= S.fatigueActsThreshold && acts !== shownForActs){
+    shownForActs = acts;
+    showBanner(`活性回数 ${acts} 回（しきい値 ${S.fatigueActsThreshold} 回）。呼吸・緊張のサインに注意してください。`);
+    return;
+  }
+  if (!shownForTime && elapsed >= S.fatigueTimeThresholdMs){
+    shownForTime = true;
+    const min = Math.round(elapsed/60000);
+    showBanner(`連続使用 約${min}分。休憩を挟むタイミングです。`);
+  }
+}
+
+function resetFatigue(){
+  acts = 0;
+  lastResetAt = Date.now();
+  shownForActs = 0;
+  shownForTime = false;
+  hideBanner();
+}
+
+function fatigueState(){
+  return {
+    activations: acts,
+    sessionMs: Date.now() - sessionStart,
+    sinceResetMs: Date.now() - lastResetAt
+  };
+}
+return { noteActivation, resetFatigue, fatigueState };
+})();
+
+// ──── module: scan.js ────
+const __M_scan = (() => {
+  const S = __M_settings.S;
+  const state = __M_state.state;
+  const speak = __M_tts.speak;
+  const beep = __M_tts.beep;
+  const logEvent = __M_evallog.logEvent;
+  const noteActivation = __M_fatigue.noteActivation;
+// スキャンエンジン（R-1〜R-4 を担保）。
+
+function paintScan(){
+  const items = state.scanItems;
+  items.forEach((it, i) => {
+    if (!it.el) return;
+    it.el.classList.toggle("scan", i === state.scanIdx);
+    it.el.classList.toggle("pulse", i === state.scanIdx && S.pulse && S.motion);
+  });
+  state.lastPaintAt = Date.now();
+  if (S.voicePrompt){
+    const c = items[state.scanIdx];
+    if (c) speak(String(c.label||"").replace("…","ぎょう"), true);
+  }
+  if (S.scanTick) beep(440, 28, 0.04);
+}
+
+function startScan(){
+  stopScan();
+  state.scanIdx = 0;
+  state.loops = 0;
+  state.locked = true;
+  setTimeout(() => {
+    state.locked = false;
+    paintScan();
+    if (S.switchCount === 1 && S.mode === "A") autoTick();
+  }, S.initialDelayMs);
+}
+
+function restartScan(){
+  stopScan();
+  state.scanIdx = 0;
+  state.loops = 0;
+  paintScan();
+  if (S.switchCount === 1 && S.mode === "A") autoTick();
+}
+
+function autoTick(){
+  state.timer = setTimeout(() => {
+    state.scanIdx++;
+    if (state.scanIdx >= state.scanItems.length){
+      state.scanIdx = 0;
+      state.loops++;
+      logEvent("wrap", { stage: state.stage, loops: state.loops });
+      if (state.loops >= S.maxLoops){
+        state.loops = 0;
+        // 行き止まりにならないようステージを1段戻す（R-4）
+        // 実際の戻しは board 側に任せる：window にイベントで通知。
+        window.dispatchEvent(new CustomEvent("scan:loopExceeded", { detail: { stage: state.stage } }));
+        return;
+      }
+    }
+    paintScan();
+    autoTick();
+  }, S.scanIntervalMs);
+}
+
+function stopScan(){
+  if (state.timer){ clearTimeout(state.timer); state.timer = null; }
+  if (state.dwellTimer){ clearTimeout(state.dwellTimer); state.dwellTimer = null; }
+}
+
+function moveNext(){
+  state.scanIdx = (state.scanIdx + 1) % state.scanItems.length;
+  paintScan();
+}
+
+function commit(){ doSelect(state.scanItems[state.scanIdx]); }
+
+function doSelect(it){
+  if (!it) return;
+  stopScan();
+  state.locked = true;
+  if (it.el) it.el.classList.remove("scan","pulse");
+
+  // 選択所要時間（直近 paint からの経過時間）を A-2 ログへ
+  const dMs = state.lastPaintAt ? (Date.now() - state.lastPaintAt) : 0;
+  const kind = it.evKind || "select";
+  logEvent(kind, { stage: state.stage, label: it.label, dMs });
+  noteActivation();
+
+  setTimeout(() => { state.locked = false; }, S.lockoutMs);
+  it.onSelect();
+}
+return { paintScan, startScan, restartScan, autoTick, stopScan, moveNext, commit, doSelect };
+})();
+
+// ──── module: screen-yesno.js ────
+const __M_screen_yesno = (() => {
+  const S = __M_settings.S;
+  const state = __M_state.state;
+  const speak = __M_tts.speak;
+  const beep = __M_tts.beep;
+  const logEvent = __M_evallog.logEvent;
+  const noteActivation = __M_fatigue.noteActivation;
+// Yes/No 専用モード（v0.9.2 で追加）。
+// 文字盤とは独立した即時意思表示。選んだ瞬間に画面全体へ大表示＋TTS。
+// スキャンエンジン本体（scan.js）は共有せず、ここに独立した最小スキャナを持つ。
+//
+// 注：v0.9.2 の単一HTML版では ynOnMove/ynCommit が main.js 内に置かれ、
+//     input.js から参照すると別IIFEスコープのため ReferenceError になる潜在バグがあった。
+//     本実装では独立モジュールとして export し、input.js / main.js から正しく import する。
+
+let ynIdx = 0;
+let ynTimer = null;
+let ynDwellTimer = null;
+
+// 他画面遷移時に「もどる」で home に戻すためのナビゲーション参照
+let goRef = null;
+function bindNavigate(goFn){ goRef = goFn; }
+
+const ynCells = () => [document.getElementById("ynYes"), document.getElementById("ynNo")];
+
+function ynPaint(){
+  ynCells().forEach((el, i) => {
+    if (!el) return;
+    el.classList.toggle("scan", i === ynIdx);
+    el.classList.toggle("pulse", i === ynIdx && S.pulse && S.motion);
+  });
+}
+
+function ynStop(){
+  if (ynTimer){ clearTimeout(ynTimer); ynTimer = null; }
+  if (ynDwellTimer){ clearTimeout(ynDwellTimer); ynDwellTimer = null; }
+}
+
+function startYesNoScan(){
+  ynStop();
+  ynIdx = 0;
+  state.locked = true;
+  setTimeout(() => {
+    state.locked = false;
+    ynPaint();
+    if (S.switchCount === 1 && S.mode === "A") ynAutoTick();
+  }, S.initialDelayMs);
+}
+
+function ynAutoTick(){
+  ynTimer = setTimeout(() => {
+    ynIdx = (ynIdx + 1) % 2;
+    ynPaint();
+    ynAutoTick();
+  }, S.scanIntervalMs);
+}
+
+function ynOnMove(){
+  if (S.switchCount === 2){
+    ynStop();
+    ynIdx = (ynIdx + 1) % 2;
+    ynPaint();
+    // 2スイッチ時は onSelect で決定
+  } else if (S.mode === "A"){
+    ynCommit();
+  } else {
+    // モードB：押す＝送り、止めて決定
+    ynStop();
+    ynIdx = (ynIdx + 1) % 2;
+    ynPaint();
+    ynDwellTimer = setTimeout(() => ynCommit(), S.dwellSelectMs);
+  }
+}
+
+function ynCommit(){
+  ynStop();
+  state.locked = true;
+  const choice = ynIdx === 0 ? "yes" : "no";
+  const word = choice === "yes"
+    ? ((S.callLabels && S.callLabels.yes) || "はい")
+    : ((S.callLabels && S.callLabels.no)  || "いいえ");
+  ynBurst(choice, word);
+  if (S.selSound) try { beep(660, 70); } catch(_){}
+  try { speak(word); } catch(_){}
+  // A-2 評価ログ・A-3 活性計測にも反映
+  logEvent("yesno", { stage: "yn", label: word });
+  noteActivation();
+  setTimeout(() => {
+    state.locked = false;
+    startYesNoScan();
+  }, Math.max(S.lockoutMs, 1500));
+}
+
+function ynBurst(choice, word){
+  const b = document.getElementById("ynBurst");
+  if (!b) return;
+  b.textContent = (choice === "yes" ? "○ " : "× ") + word;
+  b.className = "";
+  b.classList.add(choice, "on");
+  setTimeout(() => { b.classList.remove("on"); }, 1400);
+}
+
+// Yes/No 画面のセルを直接タップ／クリックでも選べる（支援者の臨時操作）
+function bindYNDirect(){
+  ["ynYes","ynNo"].forEach((id, i) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.addEventListener("pointerdown", e => {
+      e.preventDefault();
+      if (!S.directTap || state.locked) return;
+      ynStop(); ynIdx = i; ynPaint(); ynCommit();
+    });
+  });
+  const bk = document.getElementById("ynBack");
+  if (bk){
+    const h = e => { e.preventDefault(); ynStop(); if (goRef) goRef("home"); };
+    bk.addEventListener("click", h);
+    bk.addEventListener("pointerup", h);
+  }
+}
+return { bindNavigate, ynStop, startYesNoScan, ynOnMove, ynCommit, bindYNDirect };
+})();
+
+// ──── module: board.js ────
+const __M_board = (() => {
+  const S = __M_settings.S;
+  const state = __M_state.state;
+  const ROWS = __M_data.ROWS;
+  const FUNCS = __M_data.FUNCS;
+  const MODFUNCS = __M_data.MODFUNCS;
+  const VARIANTS = __M_data.VARIANTS;
+  const VLABEL = __M_data.VLABEL;
+  const makeBlocks = __M_data.makeBlocks;
+  const invertVariant = __M_data.invertVariant;
+  const speak = __M_tts.speak;
+  const beep = __M_tts.beep;
+  const paintScan = __M_scan.paintScan;
+  const restartScan = __M_scan.restartScan;
+  const doSelect = __M_scan.doSelect;
+// 盤生成・文字確定・機能・変形。
+// A-1 「呼ぶ／はい／いいえ」を全ステージ先頭付近に常設できる構造を持つ。
+
+const $ = id => document.getElementById(id);
+
+function escapeHtml(s){
+  return s.replace(/[&<>]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+}
+
+function renderOut(){
+  const out = $("out");
+  if (!out) return;
+  out.innerHTML = escapeHtml(state.text) + '<span class="caret">|</span>';
+}
+
+function afterSelect(){
+  renderOut();
+  if (S.selSound) beep(660, 70);
+}
+
+// ───── 呼ぶ／はい・いいえ 常設アクセス（A-1）─────
+function callCells(){
+  if (!S.callShortcut) return [];
+  const L = S.callLabels;
+  return [
+    { label: "📢 "+(L.call||"よんでください"), cls: "cell call", evKind: "call",
+      onSelect: () => { speak(L.call||"よんでください"); restartScan(); } },
+    { label: "○ "+(L.yes||"はい"), cls: "cell yes", evKind: "yesno",
+      onSelect: () => { speak(L.yes||"はい"); restartScan(); } },
+    { label: "× "+(L.no||"いいえ"), cls: "cell no", evKind: "yesno",
+      onSelect: () => { speak(L.no||"いいえ"); restartScan(); } }
+  ];
+}
+
+// ───── 文字確定／濁点・小文字 ─────
+function commitChar(ch){
+  if (S.variantStage && VARIANTS[ch] && VARIANTS[ch].length>0 && S.variantOn[ch]){
+    state.variantBase = ch;
+    resetStage("variant");
+  } else {
+    state.text += ch;
+    afterSelect();
+    resetStage("row");
+  }
+}
+
+function modLast(kind){
+  const c = state.text.slice(-1);
+  if (!c){ restartScan(); return; }
+  let n = null;
+  if (kind==="daku"){
+    if (VARIANTS[c] && VLABEL[VARIANTS[c][0]]==="゛") n = VARIANTS[c][0];
+    else {
+      const base = invertVariant(c);
+      if (base && VLABEL[c]==="゜") n = VARIANTS[base][0];
+      else if (base && VLABEL[c]==="゛") n = base;
+    }
+  } else if (kind==="han"){
+    const v = VARIANTS[c];
+    if (v){ const p = v.find(x => VLABEL[x]==="゜"); if (p) n = p; }
+    if (!n){
+      const base = invertVariant(c);
+      if (base){
+        const p = (VARIANTS[base]||[]).find(x => VLABEL[x]==="゜");
+        if (p && c !== p) n = p;
+        else if (VLABEL[c]==="゜") n = base;
+      }
+    }
+  } else if (kind==="small"){
+    const v = VARIANTS[c];
+    if (v){ const s = v.find(x => VLABEL[x]==="小"); if (s) n = s; }
+    if (!n){
+      const base = invertVariant(c);
+      if (base && VLABEL[c]==="小") n = base;
+    }
+  }
+  if (n){ state.text = state.text.slice(0,-1) + n; afterSelect(); }
+  restartScan();
+}
+
+// ───── 機能セル ─────
+function cycleLast(seq){
+  const last = state.text.slice(-1);
+  const i = seq.indexOf(last);
+  if (i >= 0) state.text = state.text.slice(0,-1) + seq[(i+1)%seq.length];
+  else state.text += seq[0];
+}
+
+function doFunc(a, goRef){
+  if (a==="space") state.text += " ";
+  else if (a==="bs") state.text = state.text.slice(0,-1);
+  else if (a==="clr") state.text = "";
+  else if (a==="punc") cycleLast(["、","。","？","！"]);
+  else if (a==="phr"){ goRef("phr"); return; }
+  else if (a==="home"){ goRef("home"); return; }
+  afterSelect();
+  resetStage("row");
+}
+
+// ───── 盤の生成 ─────
+let goRefBound = null;
+function bindNavigate(goFn){ goRefBound = goFn; }
+
+function resetStage(st){
+  state.stage = st;
+  state.loops = 0;
+  buildBoard();
+  restartScan();
+}
+
+function buildBoard(){
+  const grid = $("grid"), out = $("out");
+  if (!grid) return;
+  grid.innerHTML = "";
+  state.scanItems = [];
+  const goFn = goRefBound || (()=>{});
+
+  const phrases = S.phrases || {};
+  const PHR_KEYS = Object.keys(phrases);
+
+  if (state.stage === "row"){
+    // 行ステージ：先頭に「よむ」、続けて A-1 ショートカット
+    state.scanItems.push({ label:"🔊 よむ", cls:"cell read",
+      onSelect: () => { speak(); restartScan(); } });
+    state.scanItems.push(...callCells());
+
+    if (S.layout === "two-dim"){
+      grid.style.gridTemplateColumns = "repeat(3,1fr)";
+      const blocks = makeBlocks(S.blockSplits);
+      blocks.forEach((bk, bi) => {
+        // v0.9.2：先頭〜末尾の代表文字で大きく表示（「あ〜な」など）
+        const head = ROWS[bk[0]][0];
+        const tail = ROWS[bk[bk.length-1]][0];
+        state.scanItems.push({ label: head+"〜"+tail, cls:"cell kana big",
+          onSelect: () => { state.curBlock = bi; resetStage("rowIn"); } });
+      });
+    } else {
+      grid.style.gridTemplateColumns = "repeat(3,1fr)";
+      // v0.9.2：「あ…」省略表記をやめ、単独の大文字に（U002の認知に合わせる）
+      ROWS.forEach((r, i) =>
+        state.scanItems.push({ label: r[0], cls:"cell kana big",
+          onSelect: () => { state.curRow = i; resetStage("char"); } })
+      );
+    }
+    if (S.topModKeys){
+      MODFUNCS.forEach(f =>
+        state.scanItems.push({ label: f.t, cls:"cell mod",
+          onSelect: () => modLast(f.a) })
+      );
+    }
+    FUNCS.forEach(f =>
+      state.scanItems.push({ label: f.t, cls:"cell fn",
+        onSelect: () => doFunc(f.a, goFn) })
+    );
+  }
+  else if (state.stage === "rowIn"){
+    grid.style.gridTemplateColumns = "repeat(2,1fr)";
+    state.scanItems.push({ label:"↩ もどる", cls:"cell back", evKind:"back",
+      onSelect: () => resetStage("row") });
+    state.scanItems.push(...callCells());
+    const blocks = makeBlocks(S.blockSplits);
+    blocks[state.curBlock].forEach(i =>
+      state.scanItems.push({ label: ROWS[i][0], cls:"cell kana big",
+        onSelect: () => { state.curRow = i; resetStage("char"); } })
+    );
+  }
+  else if (state.stage === "char"){
+    grid.style.gridTemplateColumns = "repeat(3,1fr)";
+    state.scanItems.push({ label:"↩ もどる", cls:"cell back", evKind:"back",
+      onSelect: () => resetStage("row") });
+    state.scanItems.push(...callCells());
+    const r = ROWS[state.curRow];
+    for (let k = 1; k < r.length; k++){
+      const ch = r[k];
+      state.scanItems.push({ label: ch, cls:"cell kana",
+        onSelect: () => commitChar(ch) });
+    }
+  }
+  else if (state.stage === "variant"){
+    grid.style.gridTemplateColumns = "repeat(2,1fr)";
+    state.scanItems.push({ label:"↩ もどる", cls:"cell back", evKind:"back",
+      onSelect: () => resetStage("char") });
+    state.scanItems.push({ label: state.variantBase+"（そのまま）", cls:"cell plain",
+      onSelect: () => { state.text += state.variantBase; afterSelect(); resetStage("row"); } });
+    VARIANTS[state.variantBase].forEach(v => {
+      const tag = VLABEL[v] || "";
+      state.scanItems.push({ label: v + (tag?"  "+tag:""), cls:"cell kana",
+        onSelect: () => { state.text += v; afterSelect(); resetStage("row"); } });
+    });
+  }
+  else if (state.stage === "phrCat"){
+    grid.style.gridTemplateColumns = "repeat(2,1fr)";
+    state.scanItems.push({ label:"↩ さいしょ", cls:"cell back", evKind:"back",
+      onSelect: () => goFn("home") });
+    state.scanItems.push(...callCells());
+    PHR_KEYS.forEach(c =>
+      state.scanItems.push({ label: c, cls:"cell kana",
+        onSelect: () => { state.phrCat = c; resetStage("phrList"); } })
+    );
+    state.scanItems.push({ label:"🔊 よむ", cls:"cell read",
+      onSelect: () => { speak(); restartScan(); } });
+    state.scanItems.push({ label:"⌫ 1字", cls:"cell fn",
+      onSelect: () => { state.text = state.text.slice(0,-1); afterSelect(); restartScan(); } });
+  }
+  else if (state.stage === "phrList"){
+    grid.style.gridTemplateColumns = "repeat(1,1fr)";
+    state.scanItems.push({ label:"↩ もどる", cls:"cell back", evKind:"back",
+      onSelect: () => resetStage("phrCat") });
+    (phrases[state.phrCat] || []).forEach(p =>
+      state.scanItems.push({ label: p, cls:"cell kana",
+        onSelect: () => { state.text += p; afterSelect(); speak(p); resetStage("phrCat"); } })
+    );
+  }
+
+  // DOM 反映 + 支援者直接タップ（既定ON）
+  state.scanItems.forEach((it, idx) => {
+    const d = document.createElement("div");
+    d.className = it.cls;
+    d.textContent = it.label;
+    it.el = d;
+    d.addEventListener("pointerdown", e => {
+      if (!S.directTap) return;
+      e.preventDefault(); e.stopPropagation();
+      if (state.locked) return;
+      state.scanIdx = idx;
+      paintScan();
+      doSelect(it);
+    });
+    grid.appendChild(d);
+  });
+
+  renderOut();
+  fitGrid();
+}
+
+function fitGrid(){
+  if (state.screen !== "board") return;
+  const grid = $("grid");
+  if (!grid) return;
+  requestAnimationFrame(() => {
+    const n = state.scanItems.length || 1;
+    const cols = getComputedStyle(grid).gridTemplateColumns.split(" ").length || 3;
+    const rows = Math.ceil(n / cols);
+    const gh = grid.clientHeight, gw = grid.clientWidth;
+    if (!gh || !gw) return;
+    const gap = parseInt(getComputedStyle(document.documentElement).getPropertyValue("--gap")) || 10;
+    const cellH = (gh - gap*(rows-1)) / rows;
+    const cellW = (gw - gap*(cols-1)) / cols;
+    let fs = S.autoFit ? Math.floor(Math.min(cellH*0.42, cellW*0.34)) : S.cellFs;
+    fs = Math.max(15, Math.min(fs, 72));
+    document.documentElement.style.setProperty("--cell-fs", fs+"px");
+  });
+}
+
+// maxLoops 超過時のフォールバック（R-4）：1段戻す
+window.addEventListener("scan:loopExceeded", (e) => {
+  const st = e.detail.stage;
+  if (st === "char" || st === "rowIn" || st === "variant") resetStage("row");
+  else if (st === "phrList") resetStage("phrCat");
+  else restartScan();
+});
+return { renderOut, afterSelect, commitChar, modLast, doFunc, bindNavigate, resetStage, buildBoard, fitGrid };
+})();
+
+// ──── module: input.js ────
+const __M_input = (() => {
+  const S = __M_settings.S;
+  const state = __M_state.state;
+  const moveNext = __M_scan.moveNext;
+  const commit = __M_scan.commit;
+  const ynOnMove = __M_screen_yesno.ynOnMove;
+  const ynCommit = __M_screen_yesno.ynCommit;
+// 入力ハンドラ。HIDキーボード（中継機）と画面下のスイッチボタン。
+
+let tutPressCb = () => {};
+function bindTutorialPress(cb){ tutPressCb = cb; }
+
+function onMove(){
+  const now = Date.now();
+  if (state.locked) return;
+
+  if (state.screen === "tut"){
+    if (now - state.lastMove < S.acceptInputMs) return;
+    state.lastMove = now;
+    tutPressCb();
+    return;
+  }
+  if (state.screen === "yn"){
+    if (now - state.lastMove < S.acceptInputMs) return;
+    state.lastMove = now;
+    ynOnMove();
+    return;
+  }
+  if (state.screen !== "board") return;
+
+  if (S.switchCount === 2){
+    if (now - state.lastMove < S.acceptInputMs) return;
+    state.lastMove = now;
+    moveNext();
+  }
+  else if (S.mode === "A"){
+    if (now - state.lastMove < S.acceptInputMs) return;
+    state.lastMove = now;
+    commit();
+  }
+  else {
+    // モードB：押す＝送り、止めて決定
+    if (now - state.lastMove < Math.max(S.acceptInputMs, S.stepDebounceMs)) return;
+    state.lastMove = now;
+    if (state.dwellTimer) clearTimeout(state.dwellTimer);
+    moveNext();
+    state.dwellTimer = setTimeout(() => commit(), S.dwellSelectMs);
+  }
+}
+
+function onSelect(){
+  const now = Date.now();
+  if (state.locked) return;
+  if (state.screen === "yn" && S.switchCount === 2){
+    if (now - state.lastSel < S.acceptInputMs) return;
+    state.lastSel = now;
+    ynCommit();
+    return;
+  }
+  if (state.screen !== "board" || S.switchCount !== 2) return;
+  if (now - state.lastSel < S.acceptInputMs) return;
+  state.lastSel = now;
+  commit();
+}
+
+function bindInputs(){
+  window.addEventListener("keydown", e => {
+    if (e.repeat) return;
+    if (e.code === S.keyMove){ e.preventDefault(); onMove(); }
+    else if (S.switchCount === 2 && e.code === S.keySelect){ e.preventDefault(); onSelect(); }
+  });
+  const sm = document.getElementById("swMove");
+  const ss = document.getElementById("swSel");
+  if (sm) sm.addEventListener("pointerdown", e => { e.preventDefault(); onMove(); });
+  if (ss) ss.addEventListener("pointerdown", e => { e.preventDefault(); onSelect(); });
+}
+return { bindTutorialPress, onMove, onSelect, bindInputs };
+})();
+
+// ──── module: tutorial.js ────
+const __M_tutorial = (() => {
+  const S = __M_settings.S;
+  const state = __M_state.state;
+  const beep = __M_tts.beep;
+  const logEvent = __M_evallog.logEvent;
+// チュートリアル（非懲罰）。失敗状態を作らない。
+
+let TUT = [], tutStep = 0, tutCount = 0;
+let goRef = null;
+
+function bindNavigate(goFn){ goRef = goFn; }
+
+function tutSteps(){
+  const two = S.switchCount === 2;
+  return [
+    { h:"ようこそ",
+      p:"これは「れんしゅう」です。まちがいはありません。" + (two ? "「送り」スイッチ" : "スイッチ") + "を1回おしてみましょう。",
+      stage:()=>'<span class="demoCell scan">おす</span>',
+      need:1, ok:"いいですね！反応しました 🎉" },
+    { h: two ? "うごかす と きめる" : "えらぶ",
+      p: two
+        ? "「送り」で動き、「決定」でえらべます。送りスイッチをおしてみましょう。"
+        : "ハイライトでスイッチをおすと「えらべ」ます。もう1回どうぞ。",
+      stage:()=>'<span class="demoCell scan">あ</span><span class="demoCell">い</span>',
+      need:1, ok:"そのちょうしです ✨" },
+    { h:"゛や小さい字",
+      p:"よく使う字は、選ぶと「そのまま／゛／小」が出ます。出ない設定の字は、トップの「゛」「小」キーで直前の字を変えられます。",
+      stage:()=>'<span class="demoCell">き</span><span class="demoCell scan">ぎ ゛</span>',
+      need:1, ok:"その2通りでOK ✨" },
+    { h:"まちがえても大丈夫",
+      p:"各画面のはじめに「もどる」があります。やり直せるので失敗になりません。スイッチでつぎへ。",
+      stage:()=>'<span class="demoCell scan">↩ もどる</span><span class="demoCell">あ</span>',
+      need:1, ok:"バッチリです 👍" },
+    { h:"よぶ・はい・いいえ",
+      p:"いつでも「呼ぶ／はい／いいえ」をすぐに使えます。気持ちや要件は文字を作らなくても伝えられます。",
+      stage:()=>'<span class="demoCell">📢 よんで</span><span class="demoCell scan">○ はい</span><span class="demoCell">× いいえ</span>',
+      need:1, ok:"これが安心の入口です 🌿" },
+    { h:"じゅんびOK",
+      p:"操作はばっちり。「もじばん」か「ていけいぶん」ではなしてみましょう。",
+      stage:()=>'', need:0, ok:"" }
+  ];
+}
+
+function startTutorial(){
+  TUT = tutSteps();
+  tutStep = 0;
+  tutCount = 0;
+  renderTut();
+}
+
+function renderTut(){
+  const t = TUT[tutStep];
+  document.getElementById("tutH").textContent = t.h;
+  document.getElementById("tutP").textContent = t.p;
+  document.getElementById("tutStage").innerHTML = t.stage();
+  document.getElementById("tutPraise").textContent =
+    tutStep === TUT.length-1 ? "よくがんばりました 🌟" : "";
+}
+
+function tutPress(){
+  const t = TUT[tutStep];
+  if (t.need > 0){
+    tutCount++;
+    document.getElementById("tutPraise").textContent = t.ok;
+    if (S.selSound) beep(740, 90);
+    logEvent("tutpress", { stage: "tut", label: t.h });
+    if (tutCount >= t.need) setTimeout(nextTut, 800);
+  }
+}
+
+function nextTut(){
+  if (tutStep < TUT.length - 1){
+    tutStep++;
+    tutCount = 0;
+    renderTut();
+  }
+}
+
+function isTutDone(){ return tutStep >= TUT.length - 1; }
+
+function bindTutClick(){
+  const scr = document.getElementById("scrTut");
+  if (!scr) return;
+  scr.addEventListener("click", e => {
+    if (e.target.closest(".gear")) return;
+    if (isTutDone()) goRef && goRef("home");
+    else nextTut();
+  });
+}
+return { bindNavigate, startTutorial, tutPress, nextTut, isTutDone, bindTutClick };
+})();
+
+// ──── module: settingsui.js ────
+const __M_settingsui = (() => {
+  const S = __M_settings.S;
+  const DEFAULTS = __M_settings.DEFAULTS;
+  const applySettings = __M_settings.applySettings;
+  const keyName = __M_settings.keyName;
+  const ALL_VAR_KEYS = __M_data.ALL_VAR_KEYS;
+  const VARIANT_DEFAULT_ON = __M_data.VARIANT_DEFAULT_ON;
+  const VARIANTS = __M_data.VARIANTS;
+  const state = __M_state.state;
+  const stopScan = __M_scan.stopScan;
+  const saveSettings = __M_storage.saveSettings;
+  const summarize = __M_evallog.summarize;
+  const getAllEvents = __M_evallog.getAllEvents;
+  const toCSV = __M_evallog.toCSV;
+  const clearEvalLog = __M_evallog.clearEvalLog;
+  const fatigueState = __M_fatigue.fatigueState;
+  const resetFatigue = __M_fatigue.resetFatigue;
+  const ynStop = __M_screen_yesno.ynStop;
+  const startYesNoScan = __M_screen_yesno.startYesNoScan;
+// 支援者設定パネル。利用者スキャン経路には絶対に出さない（方針2／R-1）。
+// 設定の変更は applySettings() と saveSettings() の双方を呼ぶ。
+
+let rebuildBoardFn = () => {};
+let restartScanFn = () => {};
+function bindBoardRefs(rebuild, restart){
+  rebuildBoardFn = rebuild;
+  restartScanFn = restart;
+}
+
+function persist(){ saveSettings(S); }
+
+function numField(key, labelHTML, helpHTML, kind, min, max, step){
+  return `<div class="field">
+    <div class="flabel">${labelHTML}</div>
+    <div class="fhelp">${helpHTML}</div>
+    <div class="ctrlrow">
+      <input type="range" id="r_${key}" min="${min}" max="${max}" step="${step}" value="${S[key]}">
+      <span class="numwrap">
+        <input type="number" id="n_${key}" min="${dispVal(min,kind)}" max="${dispVal(max,kind)}" step="${dispStep(step,kind)}" value="${dispVal(S[key],kind)}">
+        <span class="unit">${unitOf(kind)}</span>
+      </span>
+    </div>
+  </div>`;
+}
+function unitOf(k){ return k==="sec" ? "秒" : k==="int" ? "周" : k==="min" ? "分" : ""; }
+function dispVal(raw, kind){
+  if (kind==="sec") return raw/1000;
+  if (kind==="min") return raw/60000;
+  return raw;
+}
+function rawVal(disp, kind){
+  if (kind==="sec") return Math.round(disp*1000);
+  if (kind==="min") return Math.round(disp*60000);
+  return Math.round(disp);
+}
+function dispStep(step, kind){
+  if (kind==="sec") return step/1000;
+  if (kind==="min") return step/60000;
+  return step;
+}
+function wireNum(key, kind){
+  const rng = document.getElementById("r_"+key);
+  const num = document.getElementById("n_"+key);
+  if (!rng || !num) return;
+  const sync = (fromNum) => {
+    if (fromNum){
+      let d = parseFloat(num.value);
+      if (isNaN(d)) return;
+      let raw = rawVal(d, kind);
+      raw = Math.min(Number(rng.max), Math.max(Number(rng.min), raw));
+      S[key] = raw;
+      rng.value = raw;
+    } else {
+      S[key] = Number(rng.value);
+      num.value = dispVal(S[key], kind);
+    }
+    applySettings();
+    persist();
+  };
+  rng.addEventListener("input", () => sync(false));
+  num.addEventListener("input", () => sync(true));
+  num.addEventListener("change", () => { num.value = dispVal(S[key], kind); });
+}
+
+function bindKeyCapture(btnId, key, capId){
+  const b = document.getElementById(btnId);
+  if (!b) return;
+  b.addEventListener("click", () => {
+    b.textContent = "キーを押してください…";
+    const h = e => {
+      e.preventDefault();
+      S[key] = e.code;
+      document.getElementById(capId).textContent = keyName(e.code);
+      b.textContent = "キーを設定（押してから入力）";
+      window.removeEventListener("keydown", h, true);
+      applySettings();
+      persist();
+    };
+    window.addEventListener("keydown", h, true);
+  });
+}
+
+function buildSettings(){
+  const g = document.getElementById("setGrid");
+  g.innerHTML = "";
+  const card = (t, note, h, wide) =>
+    `<div class="setcard${wide?' wide':''}"><h3>${t}</h3>${note?`<p class="cardnote">${note}</p>`:""}${h}</div>`;
+  const seg = (k, o) =>
+    `<div class="seg" id="s_${k}">`+
+      o.map(x => `<button data-k="${k}" data-v="${x[0]}" class="${S[k]==x[0]?'act':''}">${x[1]}</button>`).join("") +
+    `</div>`;
+  const tog = (k, l, help) =>
+    `<div class="field"><div class="toglabel">${l}</div>${help?`<div class="fhelp">${help}</div>`:""}`+
+      seg(k, [[true,"する"],[false,"しない"]])+
+    `</div>`;
+
+  // 変形チップ
+  let chips = `<div class="vargrid">`;
+  ALL_VAR_KEYS.forEach(ch => {
+    const on = !!S.variantOn[ch];
+    const sample = VARIANTS[ch].join("");
+    chips += `<button class="varchip ${on?'on':''}" data-var="${ch}"><b>${ch}</b>→ ${sample}<br>${on?'出す':'出さない'}</button>`;
+  });
+  chips += `</div><div class="varbulk">
+    <button data-bulk="all">全部 出す</button>
+    <button data-bulk="none">全部 出さない</button>
+    <button data-bulk="default">推奨に戻す</button>
+  </div>`;
+
+  // 評価ログ表示
+  const sum = summarize();
+  const ft = fatigueState();
+  const evalCard = `
+    <div class="evalbox">
+      <div class="evalrow"><span>セッション</span><b>${sum.session}</b></div>
+      <div class="evalrow"><span>選択回数</span><b>${sum.trials}</b></div>
+      <div class="evalrow"><span>もどる使用</span><b>${sum.backs}</b></div>
+      <div class="evalrow"><span>呼ぶ／はい・いいえ</span><b>${sum.calls}</b></div>
+      <div class="evalrow"><span>周回到達(行き止まり防止)</span><b>${sum.wraps}</b></div>
+      <div class="evalrow"><span>平均選択所要時間</span><b>${sum.avgDurMs} ms</b></div>
+      <div class="evalrow"><span>中央値</span><b>${sum.medDurMs} ms</b></div>
+      <div class="evalrow"><span>連続使用時間</span><b>${Math.round(ft.sinceResetMs/1000)} 秒</b></div>
+      <div class="evalrow"><span>活性回数（休憩リセット以降）</span><b>${ft.activations}</b></div>
+    </div>
+    <div class="varbulk" style="margin-top:10px">
+      <button id="evCopy">CSVをコピー</button>
+      <button id="evClear">ログ全消去</button>
+      <button id="restRst">休憩カウンタをリセット</button>
+    </div>`;
+
+  g.innerHTML =
+   card("スイッチの本数とキー","スイッチが1つか2つか。2つなら「動かす」と「決める」を別々のスイッチに割り当てます。",
+     `<div class="toglabel">スイッチの本数</div>`+seg("switchCount",[[1,"1つ"],[2,"2つ（動かす＋決める）"]])
+     +`<div class="field"><div class="flabel">「動かす（1つの時は兼用）」スイッチのキー</div>
+       <div class="fhelp">使うスイッチがどのキーを送るかに合わせます。ボタンを押してから実際のキーを1回押してください。</div>
+       <span class="keycap" id="cap_move">${keyName(S.keyMove)}</span>
+       <button class="keycap wait" id="setKeyMove" style="width:100%;margin-top:6px">キーを設定（押してから入力）</button></div>
+     <div class="field"><div class="flabel">「決める」スイッチのキー（2つの時）</div>
+       <span class="keycap" id="cap_sel">${keyName(S.keySelect)}</span>
+       <button class="keycap wait" id="setKeySel" style="width:100%;margin-top:6px">キーを設定（押してから入力）</button></div>`)
+
+  +card("呼ぶ／はい・いいえ（優先アクセス）","気切・人工呼吸器下の発信安全機能。文字盤・定型文・行のどの段階でも先頭付近に常設します。",
+     tog("callShortcut","常に表示する","各画面の先頭付近に『呼ぶ／はい／いいえ』を出します。"))
+
+  +card("支援者の直接操作","支援者が臨時に画面を直接さわって操作できるようにします（既定でON）。",
+     tog("directTap","画面の直接タッチ／クリックを使う","ONなら、スキャンを待たずに支援者がマスを直接さわって選べます。"))
+
+  +card("1スイッチの動き方","スイッチが1つの時の操作方法を選びます。",
+     `<div class="toglabel">操作方法</div>`+seg("mode",[["A","自動で動く"],["B","押して動かす（おすすめ）"]])
+     +`<p class="cardnote" style="margin-top:8px">自動で動く＝カーソルがひとりでに進み、来たら押して決める。<br>押して動かす＝押すたびに1つ進み、手を止めて待つと決まる。</p>`)
+
+  +card("自動で動く（の細かい調整）","「自動で動く」を選んだときだけ使う設定です。",
+     numField("scanIntervalMs","1マス動く速さ","数字が小さいほど速く動きます。例：2.5秒＝2.5秒ごとに次のマスへ。","sec",800,8000,100)
+    +numField("initialDelayMs","動き出すまでの待ち時間","画面が変わってから動き始めるまでの間。構える時間に使います。","sec",0,4000,100)
+    +numField("maxLoops","何周したら前に戻るか","選ばないまま指定の周回数を回ったら、自動でひとつ前の画面に戻ります（行き止まり防止）。","int",1,4,1))
+
+  +card("押して動かす（の細かい調整）","「押して動かす（おすすめ）」を選んだときだけ使う設定です。",
+     numField("dwellSelectMs","止めてから決まるまでの時間","スイッチを押すのをやめて、この時間そのまま待つと、今いるマスが選ばれます。","sec",1000,4000,100)
+    +numField("stepDebounceMs","続けて押したとき1回にまとめる時間","勢いで連続して入った押下を、この時間内なら「1回」とみなします。手のぶれ対策。","sec",150,900,50))
+
+  +card("押し間違い対策（共通）","どの動き方でも効く、誤入力を防ぐ設定です。",
+     numField("acceptInputMs","「押した」と認める長さ","これより短い接触は無視します。かすった程度の当たりを弾きます。","sec",50,500,10)
+    +numField("lockoutMs","選んだ後うけつけない時間","ひとつ選んだ直後、この時間は次の入力を受け付けません。二重に決まるのを防ぎます。","sec",300,2500,50))
+
+  +card("文字盤レイアウト","五十音の並べ方。「行のかたまり方式」のときは、下で分け方も選べます。",
+     `<div class="toglabel">並べ方</div>`+seg("layout",[["a-first","あ行が先頭"],["two-dim","行のかたまり→行→字"]])
+     +`<div class="field" style="margin-top:14px"><div class="flabel">かたまりの分け方（行のかたまり方式のときだけ有効）</div>
+       <div class="fhelp">10行をいくつの束に分けるか。束が少ない＝束選びは速いが束の中が長い。束が多い＝束選びは増えるが束の中が短い。実機で探します。</div>`
+     +seg("blockSplits",[[2,"2つに分ける"],[3,"3つに分ける"],[5,"5つに分ける"]])
+     +`<p class="cardnote" style="margin-top:8px">2つ＝あ〜な / は〜わ。3つ＝あ〜た / な〜ま / や〜わ。5つ＝2行ずつ。</p></div>`)
+
+  +card("濁点・小文字の入れ方","「が」「ぱ」「ょ」などの入れ方を選びます。",
+     tog("variantStage","字を選んだあとに候補を出す","ONにすると、対象の字を選んだとき「そのまま／゛／小」が出ます。")
+    +tog("topModKeys","トップに ゛゜小 キーを置く","ONにすると、五十音トップで直前に入れた字をあとから変えられます。")
+    +`<p class="cardnote" style="margin-top:6px">両方OFFは非推奨。どちらか一方だけでも濁点入力はできます。</p>`)
+
+  +card("候補を出す文字（事前に選ぶ）","ONの字だけ、選んだあとに変形候補を出します。あまり使わない小文字（ぁぃぅぇぉ・ゎ）は最初OFFです。",
+     chips, true)
+
+  +card("文字の大きさ","盤の見やすさ。自動なら画面に合わせて勝手に調整します。",
+     tog("autoFit","大きさを自動で合わせる","ONなら画面に収まるよう自動。OFFなら下の数字で固定。")
+    +numField("cellFs","文字の大きさ（手動のとき）","「自動で合わせる」をOFFにしたときの、ボタン内の文字の大きさ。","px",24,72,2)
+    +numField("outFs","入力した文の文字の大きさ","上の入力バーに表示される文章の文字の大きさ。","px",24,64,2))
+
+  +card("ハイライト（今どこかの目印）","選ばれている場所をどれくらい目立たせるか。",
+     numField("hlScale","今の場所をどれだけ大きく見せるか","数字を上げると、いま選ばれているマスがより拡大されて目立ちます。","px",0,16,1)
+    +tog("pulse","ふわっと点滅させる","今の場所をゆっくり光らせて分かりやすくします。"))
+
+  +card("配色","見やすい色の組み合わせ。五十音のマスにも色が付きます。",
+     `<div class="toglabel">テーマ</div>`+seg("theme",[["calm","落ち着き"],["ybk","黄×黒"],["light","明るい"],["contrast","白×黒くっきり"]]))
+
+  +card("動き・刺激","アニメーションの量。刺激を抑えたいときはOFF。",
+     tog("motion","画面の動きをつける","OFFにすると動きが減り、刺激がひかえめになります（呼吸・緊張に配慮）。"))
+
+  +card("音","操作音や読み上げ。",
+     tog("scanTick","動くたびに小さな音","カーソルが動くタイミングで短い音を鳴らします。")
+    +tog("selSound","決めたときの音","選択が決まったときに音を鳴らします。")
+    +tog("voicePrompt","今の場所を読み上げる","いま選ばれている場所を声で読み上げます。"))
+
+  +card("休憩サイン（支援者向け）","活性回数や連続使用時間で支援者に休憩を提案します。利用者の画面操作経路には出しません。",
+     tog("fatigueEnabled","休憩サインを使う","")
+    +numField("fatigueActsThreshold","この回数を超えたら休憩提案","選択（活性）の回数。呼吸・高緊張への配慮で30回前後を初期値に。","int",10,100,5)
+    +numField("fatigueTimeThresholdMs","この時間を超えたら休憩提案","連続使用時間（分）。","min",60000,30*60000,60000))
+
+  +card("評価ログ（端末内のみ）","現在のセッション集計です。外部に送信しません。",
+     tog("evalLogEnabled","記録する","")
+    +evalCard, true);
+
+  // 数値フィールド配線
+  const numKinds = {
+    scanIntervalMs:"sec", initialDelayMs:"sec", maxLoops:"int",
+    dwellSelectMs:"sec", stepDebounceMs:"sec",
+    acceptInputMs:"sec", lockoutMs:"sec",
+    cellFs:"px", outFs:"px", hlScale:"px",
+    fatigueActsThreshold:"int", fatigueTimeThresholdMs:"min"
+  };
+  Object.keys(numKinds).forEach(k => wireNum(k, numKinds[k]));
+
+  // 値ボタン（seg）
+  g.querySelectorAll(".seg button").forEach(b => {
+    b.addEventListener("click", () => {
+      let v = b.dataset.v;
+      if (v === "true") v = true;
+      else if (v === "false") v = false;
+      if (b.dataset.k === "switchCount" || b.dataset.k === "blockSplits") v = Number(v);
+      S[b.dataset.k] = v;
+      b.parentElement.querySelectorAll("button").forEach(x => x.classList.remove("act"));
+      b.classList.add("act");
+      applySettings();
+      persist();
+    });
+  });
+
+  // 変形チップ
+  g.querySelectorAll(".varchip").forEach(c => {
+    c.addEventListener("click", () => {
+      const ch = c.dataset.var;
+      S.variantOn[ch] = S.variantOn[ch] ? 0 : 1;
+      persist();
+      buildSettings();
+    });
+  });
+  g.querySelectorAll(".varbulk button").forEach(b => {
+    b.addEventListener("click", () => {
+      const m = b.dataset.bulk;
+      if (!m) return;
+      ALL_VAR_KEYS.forEach(ch => {
+        S.variantOn[ch] = m==="all" ? 1 : m==="none" ? 0 : (VARIANT_DEFAULT_ON[ch]||0);
+      });
+      persist();
+      buildSettings();
+    });
+  });
+
+  // キー設定
+  bindKeyCapture("setKeyMove", "keyMove", "cap_move");
+  bindKeyCapture("setKeySel",  "keySelect", "cap_sel");
+
+  // 評価ログ操作
+  const evCopy = g.querySelector("#evCopy");
+  const evClear = g.querySelector("#evClear");
+  const restRst = g.querySelector("#restRst");
+  if (evCopy) evCopy.addEventListener("click", async () => {
+    const csv = toCSV();
+    try { await navigator.clipboard.writeText(csv); evCopy.textContent = "コピー済み"; setTimeout(()=>evCopy.textContent="CSVをコピー",1200); }
+    catch(_){ alert(csv.slice(0,5000)); }
+  });
+  if (evClear) evClear.addEventListener("click", () => {
+    if (confirm("評価ログを全て消去します。よろしいですか？")){ clearEvalLog(); buildSettings(); }
+  });
+  if (restRst) restRst.addEventListener("click", () => { resetFatigue(); buildSettings(); });
+}
+
+function openSet(){
+  buildSettings();
+  document.getElementById("setPanel").classList.add("on");
+  stopScan();
+  ynStop(); // Yes/No画面から設定を開いたときスキャナを止める
+}
+function closeSet(){
+  document.getElementById("setPanel").classList.remove("on");
+  applySettings();
+  persist();
+  if (state.screen === "board"){
+    rebuildBoardFn();
+    restartScanFn();
+  } else if (state.screen === "yn"){
+    startYesNoScan();
+  }
+}
+
+function bindGears(){
+  ["gearHome","gearTut","gearBoard","gearYN"].forEach(id => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    let t = null;
+    const dn = () => { t = setTimeout(openSet, 800); };
+    const up = () => { if (t) clearTimeout(t); };
+    el.addEventListener("pointerdown", dn);
+    el.addEventListener("pointerup", up);
+    el.addEventListener("pointerleave", up);
+  });
+  document.getElementById("setClose").addEventListener("click", closeSet);
+
+  // v0.9.2：明示的な「保存」ボタンと時刻つきステータス表示（自動保存と併存）
+  const saveBtn = document.getElementById("setSave");
+  if (saveBtn){
+    saveBtn.addEventListener("click", () => {
+      const ok = saveSettings(S);
+      const st = document.getElementById("setSaveStatus");
+      if (st){
+        if (ok){
+          st.textContent = "✅ 保存しました（" + new Date().toLocaleTimeString("ja-JP") + "）";
+          st.style.color = "#56c08a";
+        } else {
+          st.textContent = "⚠ 保存できませんでした。Safariの設定（プライベートモード／サイトデータ削除）をご確認ください。";
+          st.style.color = "#ff9b6a";
+        }
+      }
+    });
+  }
+
+  document.getElementById("setReset").addEventListener("click", () => {
+    // 初期値に戻す（変形マップも含む）
+    for (const k of Object.keys(S)) delete S[k];
+    Object.assign(S, JSON.parse(JSON.stringify(DEFAULTS)));
+    S.variantOn = Object.assign({}, VARIANT_DEFAULT_ON);
+    persist();
+    buildSettings();
+    applySettings();
+    const st = document.getElementById("setSaveStatus");
+    if (st){ st.textContent = "初期値に戻しました。"; st.style.color = "#aab3bf"; }
+  });
+}
+return { bindBoardRefs, buildSettings, openSet, closeSet, bindGears };
+})();
+
+// ──── module: main.js ────
+const __M_main = (() => {
+  const S = __M_settings.S;
+  const applySettings = __M_settings.applySettings;
+  const state = __M_state.state;
+  const startSession = __M_state.startSession;
+  const replaceSettings = __M_settings.replaceSettings;
+  const loadSettings = __M_storage.loadSettings;
+  const saveSettings = __M_storage.saveSettings;
+  const bootEvalLog = __M_evallog.bootEvalLog;
+  const buildBoard = __M_board.buildBoard;
+  const renderOut = __M_board.renderOut;
+  const fitGrid = __M_board.fitGrid;
+  const bindBoardNav = __M_board.bindNavigate;
+  const stopScan = __M_scan.stopScan;
+  const startScan = __M_scan.startScan;
+  const restartScan = __M_scan.restartScan;
+  const bindInputs = __M_input.bindInputs;
+  const bindTutorialPress = __M_input.bindTutorialPress;
+  const startTutorial = __M_tutorial.startTutorial;
+  const tutPress = __M_tutorial.tutPress;
+  const bindTutNav = __M_tutorial.bindNavigate;
+  const bindTutClick = __M_tutorial.bindTutClick;
+  const bindBoardRefs = __M_settingsui.bindBoardRefs;
+  const bindGears = __M_settingsui.bindGears;
+  const startYesNoScan = __M_screen_yesno.startYesNoScan;
+  const ynStop = __M_screen_yesno.ynStop;
+  const bindYNDirect = __M_screen_yesno.bindYNDirect;
+  const bindYNNav = __M_screen_yesno.bindNavigate;
+  const unlockSpeech = __M_tts.unlockSpeech;
+// 起動・画面遷移。
+// プライバシー：氏名・個人特定情報を扱わない。識別は "U002" のみ。
+
+function show(id){
+  document.querySelectorAll(".screen").forEach(s => s.classList.remove("on"));
+  document.getElementById(id).classList.add("on");
+}
+
+function go(where){
+  stopScan();
+  ynStop(); // 他画面に遷移するとき Yes/No スキャナが残らないように
+  if (where === "tut"){
+    state.screen = "tut"; show("scrTut"); startTutorial();
+  } else if (where === "board"){
+    state.screen = "board"; state.mode = "kana"; show("scrBoard");
+    state.stage = "row"; buildBoard(); startScan();
+  } else if (where === "phr"){
+    state.screen = "board"; state.mode = "phrase"; show("scrBoard");
+    state.stage = "phrCat"; buildBoard(); startScan();
+  } else if (where === "yn"){
+    state.screen = "yn"; show("scrYN"); startYesNoScan();
+  } else {
+    state.screen = "home"; show("scrHome");
+  }
+}
+
+function bootSettings(){
+  const saved = loadSettings();
+  if (saved) replaceSettings(saved);
+  else saveSettings(S);
+}
+
+function bootSW(){
+  if (!("serviceWorker" in navigator)) return;
+  // Service Worker は同一オリジン直下。完全オフライン動作を担保。
+  navigator.serviceWorker.register("./sw.js").catch(()=>{});
+}
+
+function bootApp(){
+  bootSettings();
+  bootEvalLog();
+  startSession();
+
+  // ナビゲーション参照を board/tutorial/yesno に渡す
+  bindBoardNav(go);
+  bindTutNav(go);
+  bindYNNav(go);
+  bindTutorialPress(tutPress);
+
+  // 設定パネルから盤再構築するときに使う参照
+  bindBoardRefs(buildBoard, restartScan);
+
+  // 入力ハンドラ・歯車・チュートリアル進行・Yes/No直接タップ
+  bindInputs();
+  bindGears();
+  bindTutClick();
+  bindYNDirect();
+
+  // ホームのメニュー（iPad Safari ではタップ反応のため click と pointerup 両方）
+  // 最初のタップで TTS 解錠（iOS Safari の発声許可確立）も行う。
+  document.querySelectorAll("[data-go]").forEach(b => {
+    const handler = e => {
+      e.preventDefault();
+      try { unlockSpeech(); } catch(_){}
+      go(e.currentTarget.dataset.go);
+    };
+    b.addEventListener("click", handler);
+    b.addEventListener("pointerup", handler);
+  });
+
+  // 任意の最初のタップ／キー入力でも TTS 解錠（保険）
+  const __unlockOnce = () => {
+    try { unlockSpeech(); } catch(_){}
+    window.removeEventListener("pointerdown", __unlockOnce, true);
+    window.removeEventListener("keydown", __unlockOnce, true);
+  };
+  window.addEventListener("pointerdown", __unlockOnce, true);
+  window.addEventListener("keydown", __unlockOnce, true);
+
+  // 音声合成のボイス先読み
+  if ("speechSynthesis" in window){ speechSynthesis.getVoices(); }
+
+  // 初期反映
+  applySettings();
+  renderOut();
+  window.addEventListener("resize", fitGrid);
+  window.addEventListener("orientationchange", () => setTimeout(fitGrid, 200));
+
+  bootSW();
+}
+
+// iPad Safari ではインラインスクリプトの実行時点で既に DOMContentLoaded を取り逃す
+// ケースがある。document.readyState を見て即時 / 遅延を切り替える。
+if (document.readyState === "loading"){
+  window.addEventListener("DOMContentLoaded", bootApp);
+} else {
+  bootApp();
+}
+return { go };
+})();
+</script>
+</body>
+</html>
