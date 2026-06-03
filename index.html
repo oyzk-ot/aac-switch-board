@@ -94,6 +94,61 @@ body{
   z-index:2;
 }
 
+/* 50音表モード（kana-grid）：全文字を常時表示、行→字 のRow-Column Scanning */
+.grid.kgrid-mode{
+  display:flex; flex-direction:column; gap:var(--gap);
+  align-items:stretch;
+}
+.fn-band{
+  display:flex; gap:8px; flex-wrap:wrap; flex:0 0 auto;
+}
+.fn-band .cell{
+  flex:1 1 0; min-width:0; min-height:48px;
+  font-size:calc(var(--cell-fs)*.6);
+}
+.kgrid{
+  flex:1 1 auto; min-height:0;
+  display:grid;
+  /* minmax(0,1fr) で行が intrinsic min-size を超えて伸びるのを抑制し
+     全10行が必ずコンテナ内に収まるようにする */
+  grid-template-rows:repeat(10, minmax(0, 1fr));
+  gap:6px;
+}
+.krow{
+  display:grid;
+  grid-template-columns:repeat(5, minmax(0, 1fr));
+  gap:6px;
+  border:2px solid transparent;
+  border-radius:var(--radius);
+  padding:0;
+  min-height:0;
+  min-width:0;
+}
+.krow .cell{
+  /* 行内の個別字セル。min-height:0 でgrid内縮小を許す */
+  font-size:var(--cell-fs);
+  min-height:0;
+  min-width:0;
+}
+/* 行ハイライト：.krow.scan で配下の全字を同時に黄色強調 */
+.krow.scan{
+  border-color:var(--hl);
+  background:rgba(240,168,60,.08);
+}
+.krow.scan .cell{
+  background:var(--hl) !important;
+  color:var(--hl-ink) !important;
+  border-color:var(--hl) !important;
+}
+/* kanaChar ステージ：非選択行は減光して、選択行のみ操作対象であることを明示 */
+.kgrid.char-stage .krow:not(.active) .cell{
+  opacity:.32;
+  filter:saturate(.6);
+}
+.kgrid.char-stage .krow.active .cell{
+  opacity:1;
+}
+
 /* Yes/No 専用画面（v0.9.2） */
 #scrYN .yn-grid{
   display:grid; grid-template-columns:1fr 1fr; gap:24px;
@@ -637,7 +692,11 @@ function applySettings(){
     let m;
     if (S.switchCount===2) m = "2スイッチ：送り＋決定";
     else m = (S.mode==="A" ? "1SW-A：オート" : "1SW-B：押す＝送り／止めて決定");
-    m += " ／ " + (S.layout==="a-first" ? "あ行先頭" : "2次元"+S.blockSplits+"分割");
+    m += " ／ " + (
+      S.layout==="a-first"   ? "あ行先頭" :
+      S.layout==="kana-grid" ? "50音表"   :
+                               "2次元"+S.blockSplits+"分割"
+    );
     chip.textContent = m;
   }
 
@@ -1220,6 +1279,11 @@ let goRefBound = null;
 function bindNavigate(goFn){ goRefBound = goFn; }
 
 function resetStage(st){
+  // kana-grid レイアウトでは旧来の "row" / "char" を新ステージにマッピング
+  if (S.layout === "kana-grid"){
+    if (st === "row")  st = "kanaRow";
+    if (st === "char") st = "kanaChar";
+  }
   state.stage = st;
   state.loops = 0;
   buildBoard();
@@ -1230,6 +1294,11 @@ function buildBoard(){
   const grid = $("grid"), out = $("out");
   if (!grid) return;
   grid.innerHTML = "";
+  // 前回ステージで付けた可能性のあるクラス／スタイルをクリア
+  grid.className = "grid";
+  grid.style.gridTemplateColumns = "";
+  grid.style.display = "";
+  grid.style.flexDirection = "";
   state.scanItems = [];
   const goFn = goRefBound || (()=>{});
 
@@ -1329,13 +1398,111 @@ function buildBoard(){
         onSelect: () => { state.text += p; afterSelect(); speak(p); resetStage("phrCat"); } })
     );
   }
+  // ───── 50音表モード（kana-grid）─────
+  // 全文字を常時表示。kanaRow=行ハイライト、kanaChar=選択行の字を1つずつ
+  else if (state.stage === "kanaRow" || state.stage === "kanaChar"){
+    grid.classList.add("kgrid-mode");
+
+    // 上部機能帯
+    const topBand = document.createElement("div");
+    topBand.className = "fn-band fn-top";
+    grid.appendChild(topBand);
+
+    const addCellTo = (parent, opts) => {
+      const c = document.createElement("div");
+      c.className = opts.cls;
+      c.textContent = opts.label;
+      parent.appendChild(c);
+      const item = Object.assign({}, opts, { el: c });
+      state.scanItems.push(item);
+      return c;
+    };
+
+    if (state.stage === "kanaChar"){
+      addCellTo(topBand, { label:"↩ もどる", cls:"cell back", evKind:"back",
+        onSelect: () => resetStage("kanaRow") });
+    }
+    addCellTo(topBand, { label:"🔊 よむ", cls:"cell read",
+      onSelect: () => { speak(); restartScan(); } });
+    // A-1（呼ぶ／はい／いいえ）— callShortcut=ON の時のみ
+    callCells().forEach(it => addCellTo(topBand, it));
+
+    // 50音グリッド本体
+    const kg = document.createElement("div");
+    kg.className = "kgrid";
+    if (state.stage === "kanaChar") kg.classList.add("char-stage");
+    grid.appendChild(kg);
+
+    ROWS.forEach((r, ri) => {
+      const rowDiv = document.createElement("div");
+      rowDiv.className = "krow";
+      rowDiv.dataset.row = ri;
+
+      // 行内の各字セル
+      for (let k = 1; k < r.length; k++){
+        const ch = r[k];
+        const cell = document.createElement("div");
+        cell.className = "cell kana";
+        cell.textContent = ch;
+        rowDiv.appendChild(cell);
+      }
+      kg.appendChild(rowDiv);
+
+      if (state.stage === "kanaRow"){
+        // 行スキャン：rowDiv 自体がスキャン対象
+        state.scanItems.push({
+          label: "row-"+ri, cls: "krow",
+          el: rowDiv,
+          onSelect: () => { state.curRow = ri; resetStage("kanaChar"); }
+        });
+      } else {
+        // kanaChar：選択行のセルだけスキャン対象に。他の行は減光（CSS）
+        if (ri === state.curRow){
+          rowDiv.classList.add("active");
+          for (let k = 1; k < r.length; k++){
+            const ch = r[k];
+            const cell = rowDiv.children[k-1];
+            state.scanItems.push({
+              label: ch, cls: "cell kana",
+              el: cell,
+              onSelect: () => commitChar(ch)
+            });
+          }
+        }
+      }
+    });
+
+    // 下部機能帯（kanaRow のみ。kanaChar はミニマルに保つ）
+    if (state.stage === "kanaRow"){
+      const botBand = document.createElement("div");
+      botBand.className = "fn-band fn-bottom";
+      grid.appendChild(botBand);
+
+      if (S.topModKeys){
+        MODFUNCS.forEach(f => addCellTo(botBand, {
+          label: f.t, cls: "cell mod",
+          onSelect: () => modLast(f.a)
+        }));
+      }
+      FUNCS.forEach(f => addCellTo(botBand, {
+        label: f.t, cls: "cell fn",
+        onSelect: () => doFunc(f.a, goFn)
+      }));
+    }
+  }
 
   // DOM 反映 + 支援者直接タップ（既定ON）
+  // 事前に el が設定済み（kana-grid 等のカスタム構造）の場合は DOM 構築をスキップし、
+  // 直接タップハンドラだけを付ける。
   state.scanItems.forEach((it, idx) => {
-    const d = document.createElement("div");
-    d.className = it.cls;
-    d.textContent = it.label;
-    it.el = d;
+    let d = it.el;
+    if (!d){
+      d = document.createElement("div");
+      d.className = it.cls;
+      d.textContent = it.label;
+      it.el = d;
+      grid.appendChild(d);
+    }
     d.addEventListener("pointerdown", e => {
       if (!S.directTap) return;
       e.preventDefault(); e.stopPropagation();
@@ -1344,7 +1511,6 @@ function buildBoard(){
       paintScan();
       doSelect(it);
     });
-    grid.appendChild(d);
   });
 
   renderOut();
@@ -1356,6 +1522,22 @@ function fitGrid(){
   const grid = $("grid");
   if (!grid) return;
   requestAnimationFrame(() => {
+    // 50音表モードは固定構造(5列×10行)。kgrid 要素の寸法から逆算する。
+    if (grid.classList.contains("kgrid-mode")){
+      const kg = grid.querySelector(".kgrid");
+      if (!kg) return;
+      const gh = kg.clientHeight, gw = kg.clientWidth;
+      if (!gh || !gw) return;
+      const rows = 10, cols = 5;
+      const gap = 6;
+      const cellH = (gh - gap*(rows-1)) / rows;
+      const cellW = (gw - gap*(cols-1)) / cols;
+      let fs = S.autoFit ? Math.floor(Math.min(cellH*0.55, cellW*0.55)) : S.cellFs;
+      fs = Math.max(15, Math.min(fs, 64));
+      document.documentElement.style.setProperty("--cell-fs", fs+"px");
+      return;
+    }
+
     const n = state.scanItems.length || 1;
     const cols = getComputedStyle(grid).gridTemplateColumns.split(" ").length || 3;
     const rows = Math.ceil(n / cols);
@@ -1374,6 +1556,7 @@ function fitGrid(){
 window.addEventListener("scan:loopExceeded", (e) => {
   const st = e.detail.stage;
   if (st === "char" || st === "rowIn" || st === "variant") resetStage("row");
+  else if (st === "kanaChar") resetStage("kanaRow");
   else if (st === "phrList") resetStage("phrCat");
   else restartScan();
 });
@@ -1738,9 +1921,18 @@ function buildSettings(){
      numField("acceptInputMs","「押した」と認める長さ","これより短い接触は無視します。かすった程度の当たりを弾きます。","sec",50,500,10)
     +numField("lockoutMs","選んだ後うけつけない時間","ひとつ選んだ直後、この時間は次の入力を受け付けません。二重に決まるのを防ぎます。","sec",300,2500,50))
 
-  +card("文字盤レイアウト","五十音の並べ方。「行のかたまり方式」のときは、下で分け方も選べます。",
-     `<div class="toglabel">並べ方</div>`+seg("layout",[["a-first","あ行が先頭"],["two-dim","行のかたまり→行→字"]])
-     +`<div class="field" style="margin-top:14px"><div class="flabel">かたまりの分け方（行のかたまり方式のときだけ有効）</div>
+  +card("文字盤レイアウト","五十音の並べ方。3種類から選べます。",
+     `<div class="toglabel">並べ方</div>`+seg("layout",[
+        ["a-first","あ行が先頭（縮約）"],
+        ["two-dim","行のかたまり→行→字"],
+        ["kana-grid","50音表（行ハイライト）"]
+     ])
+     +`<p class="cardnote" style="margin-top:8px">
+       <b>あ行が先頭</b>＝あかさたな…の代表字を選ぶ→行内の字を選ぶ（2段階）。<br>
+       <b>行のかたまり</b>＝大きな束→行→字（3段階。束サイズは下で調整）。<br>
+       <b>50音表</b>＝50音をすべて常時表示し、行全体がハイライト→決定→行内の字が1つずつハイライト→決定。
+       </p>`
+     +`<div class="field" style="margin-top:14px"><div class="flabel">かたまりの分け方（「行のかたまり」のときだけ有効）</div>
        <div class="fhelp">10行をいくつの束に分けるか。束が少ない＝束選びは速いが束の中が長い。束が多い＝束選びは増えるが束の中が短い。実機で探します。</div>`
      +seg("blockSplits",[[2,"2つに分ける"],[3,"3つに分ける"],[5,"5つに分ける"]])
      +`<p class="cardnote" style="margin-top:8px">2つ＝あ〜な / は〜わ。3つ＝あ〜た / な〜ま / や〜わ。5つ＝2行ずつ。</p></div>`)
@@ -1956,7 +2148,9 @@ function go(where){
     state.screen = "tut"; show("scrTut"); startTutorial();
   } else if (where === "board"){
     state.screen = "board"; state.mode = "kana"; show("scrBoard");
-    state.stage = "row"; buildBoard(); startScan();
+    // layout に応じて初期ステージを切り替える
+    state.stage = (S.layout === "kana-grid") ? "kanaRow" : "row";
+    buildBoard(); startScan();
   } else if (where === "phr"){
     state.screen = "board"; state.mode = "phrase"; show("scrBoard");
     state.stage = "phrCat"; buildBoard(); startScan();
