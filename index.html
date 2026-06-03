@@ -597,6 +597,9 @@ const DEFAULTS = {
   // 50音表モード時の並びの向き："h"=横(10行×5列)・"v"=縦(5行×10列)
   // 横画面のiPadでは "v" の方が画面比に合う。
   kanaGridOrient: "h",
+  // 50音表の行の並び順を反転：true で あ行 が右(縦)/下(横) に位置する。
+  // 伝統的な日本語の50音図は縦書きで右から読むため、縦向きでは true が自然な場合も。
+  kanaGridReverse: false,
 
   // モードA
   scanIntervalMs: 2500,
@@ -1462,7 +1465,10 @@ function buildBoard(){
         cell.textContent = ch;
         rowDiv.appendChild(cell);
       }
-      kg.appendChild(rowDiv);
+      // 反転モードでは prepend（先頭に挿入）して視覚順を逆転
+      // → 縦向きならあ行が右端、横向きならあ行が下端に配置される
+      if (S.kanaGridReverse) kg.insertBefore(rowDiv, kg.firstChild);
+      else                   kg.appendChild(rowDiv);
 
       if (state.stage === "kanaRow"){
         // 行スキャン：rowDiv 自体がスキャン対象
@@ -1954,6 +1960,10 @@ function buildSettings(){
      +`<div class="field" style="margin-top:14px"><div class="flabel">50音表の向き（「50音表」のときだけ有効）</div>
        <div class="fhelp">横画面で使うときは「縦」の方が画面いっぱいに広がります。縦画面では「横」の方が見やすいことが多いです。</div>`
      +seg("kanaGridOrient",[["h","横（10行×5列）"],["v","縦（5行×10列）"]])
+     +`</div>`
+     +`<div class="field" style="margin-top:14px"><div class="flabel">あ行の位置（「50音表」のときだけ有効）</div>
+       <div class="fhelp">通常はあ行が左（縦向き）／上（横向き）。反対にすると、伝統的な50音図と同じくあ行が右／下に来ます。</div>`
+     +seg("kanaGridReverse",[[false,"通常（あ行は 左／上）"],[true,"反対（あ行は 右／下）"]])
      +`</div>`
      +`<div class="field" style="margin-top:14px"><div class="flabel">かたまりの分け方（「行のかたまり」のときだけ有効）</div>
        <div class="fhelp">10行をいくつの束に分けるか。束が少ない＝束選びは速いが束の中が長い。束が多い＝束選びは増えるが束の中が短い。実機で探します。</div>`
