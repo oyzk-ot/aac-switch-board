@@ -109,10 +109,15 @@ body{
 .kgrid{
   flex:1 1 auto; min-height:0;
   display:grid;
-  /* minmax(0,1fr) で行が intrinsic min-size を超えて伸びるのを抑制し
-     全10行が必ずコンテナ内に収まるようにする */
+  /* 既定：横向き(10行×5列) */
   grid-template-rows:repeat(10, minmax(0, 1fr));
   gap:6px;
+}
+/* 縦向き：5行×10列。横画面iPadで画面比に合う */
+.kgrid.vert{
+  grid-template-rows:none;
+  grid-template-columns:repeat(10, minmax(0, 1fr));
+  grid-auto-flow:column;
 }
 .krow{
   display:grid;
@@ -123,6 +128,12 @@ body{
   padding:0;
   min-height:0;
   min-width:0;
+}
+/* 縦向き時：krow 内部も縦並びに */
+.kgrid.vert .krow{
+  grid-template-columns:none;
+  grid-template-rows:repeat(5, minmax(0, 1fr));
+  grid-auto-flow:row;
 }
 .krow .cell{
   /* 行内の個別字セル。min-height:0 でgrid内縮小を許す */
@@ -583,6 +594,9 @@ const DEFAULTS = {
   // 盤
   layout: "a-first",
   blockSplits: 2,
+  // 50音表モード時の並びの向き："h"=横(10行×5列)・"v"=縦(5行×10列)
+  // 横画面のiPadでは "v" の方が画面比に合う。
+  kanaGridOrient: "h",
 
   // モードA
   scanIntervalMs: 2500,
@@ -694,7 +708,7 @@ function applySettings(){
     else m = (S.mode==="A" ? "1SW-A：オート" : "1SW-B：押す＝送り／止めて決定");
     m += " ／ " + (
       S.layout==="a-first"   ? "あ行先頭" :
-      S.layout==="kana-grid" ? "50音表"   :
+      S.layout==="kana-grid" ? ("50音表" + (S.kanaGridOrient==="v" ? "（縦）" : "（横）")) :
                                "2次元"+S.blockSplits+"分割"
     );
     chip.textContent = m;
@@ -1431,6 +1445,8 @@ function buildBoard(){
     const kg = document.createElement("div");
     kg.className = "kgrid";
     if (state.stage === "kanaChar") kg.classList.add("char-stage");
+    // 縦向き（5行×10列）が選択されていれば .vert を付与
+    if (S.kanaGridOrient === "v") kg.classList.add("vert");
     grid.appendChild(kg);
 
     ROWS.forEach((r, ri) => {
@@ -1522,13 +1538,16 @@ function fitGrid(){
   const grid = $("grid");
   if (!grid) return;
   requestAnimationFrame(() => {
-    // 50音表モードは固定構造(5列×10行)。kgrid 要素の寸法から逆算する。
+    // 50音表モードは固定構造（横:10行×5列 / 縦:5行×10列）。
+    // kgrid 要素の寸法と .vert クラスから逆算する。
     if (grid.classList.contains("kgrid-mode")){
       const kg = grid.querySelector(".kgrid");
       if (!kg) return;
       const gh = kg.clientHeight, gw = kg.clientWidth;
       if (!gh || !gw) return;
-      const rows = 10, cols = 5;
+      const isVert = kg.classList.contains("vert");
+      const rows = isVert ? 5  : 10;
+      const cols = isVert ? 10 : 5;
       const gap = 6;
       const cellH = (gh - gap*(rows-1)) / rows;
       const cellW = (gw - gap*(cols-1)) / cols;
@@ -1932,6 +1951,10 @@ function buildSettings(){
        <b>行のかたまり</b>＝大きな束→行→字（3段階。束サイズは下で調整）。<br>
        <b>50音表</b>＝50音をすべて常時表示し、行全体がハイライト→決定→行内の字が1つずつハイライト→決定。
        </p>`
+     +`<div class="field" style="margin-top:14px"><div class="flabel">50音表の向き（「50音表」のときだけ有効）</div>
+       <div class="fhelp">横画面で使うときは「縦」の方が画面いっぱいに広がります。縦画面では「横」の方が見やすいことが多いです。</div>`
+     +seg("kanaGridOrient",[["h","横（10行×5列）"],["v","縦（5行×10列）"]])
+     +`</div>`
      +`<div class="field" style="margin-top:14px"><div class="flabel">かたまりの分け方（「行のかたまり」のときだけ有効）</div>
        <div class="fhelp">10行をいくつの束に分けるか。束が少ない＝束選びは速いが束の中が長い。束が多い＝束選びは増えるが束の中が短い。実機で探します。</div>`
      +seg("blockSplits",[[2,"2つに分ける"],[3,"3つに分ける"],[5,"5つに分ける"]])
