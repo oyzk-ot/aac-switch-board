@@ -772,23 +772,19 @@ function speak(txt, quiet){
   if (!s) return;
   try {
     if (!("speechSynthesis" in window)) return;
-    speechSynthesis.cancel(); // 重なり防止
-    const speakNow = () => {
-      const u = new SpeechSynthesisUtterance(s);
-      u.lang = "ja-JP";
-      u.rate = 0.95;
-      if (quiet) u.volume = 0.5;
-      const vs = speechSynthesis.getVoices();
-      const ja = vs.find(v => /ja(-|_)?JP/i.test(v.lang) || /Japanese|日本/i.test(v.name));
-      if (ja) u.voice = ja;
-      speechSynthesis.speak(u);
-    };
-    if (speechSynthesis.getVoices().length === 0){
-      speechSynthesis.onvoiceschanged = () => { speechSynthesis.onvoiceschanged = null; speakNow(); };
-      setTimeout(speakNow, 250);
-    } else {
-      speakNow();
+    // 既に発話中／待ち行列がある時だけキャンセル。
+    // (空キャンセルは iOS Safari の user-gesture 連鎖を切る恐れがあるため避ける)
+    if (speechSynthesis.speaking || speechSynthesis.pending){
+      speechSynthesis.cancel();
     }
+    const u = new SpeechSynthesisUtterance(s);
+    u.lang = "ja-JP";
+    u.rate = 0.95;
+    if (quiet) u.volume = 0.5;
+    const vs = speechSynthesis.getVoices();
+    const ja = vs.find(v => /ja(-|_)?JP/i.test(v.lang) || /Japanese|日本/i.test(v.name));
+    if (ja) u.voice = ja;
+    speechSynthesis.speak(u);
   } catch(_){}
 }
 return { beep, unlockSpeech, speak };
@@ -1226,6 +1222,15 @@ function callCells(){
   ];
 }
 
+// 「よむ」セル共通ハンドラ：
+//   - 必ず確認音を鳴らす（テキスト空でもタップが通ったことが分かる）
+//   - 文章があれば読み上げ
+function yomuSelect(){
+  if (S.selSound) beep(660, 70);
+  speak();
+  restartScan();
+}
+
 // ───── 文字確定／濁点・小文字 ─────
 function commitChar(ch){
   if (S.variantStage && VARIANTS[ch] && VARIANTS[ch].length>0 && S.variantOn[ch]){
@@ -1325,7 +1330,7 @@ function buildBoard(){
   if (state.stage === "row"){
     // 行ステージ：先頭に「よむ」、続けて A-1 ショートカット
     state.scanItems.push({ label:"🔊 よむ", cls:"cell read",
-      onSelect: () => { speak(); restartScan(); } });
+      onSelect: yomuSelect });
     state.scanItems.push(...callCells());
 
     if (S.layout === "two-dim"){
@@ -1402,7 +1407,7 @@ function buildBoard(){
         onSelect: () => { state.phrCat = c; resetStage("phrList"); } })
     );
     state.scanItems.push({ label:"🔊 よむ", cls:"cell read",
-      onSelect: () => { speak(); restartScan(); } });
+      onSelect: yomuSelect });
     state.scanItems.push({ label:"⌫ 1字", cls:"cell fn",
       onSelect: () => { state.text = state.text.slice(0,-1); afterSelect(); restartScan(); } });
   }
@@ -1425,6 +1430,7 @@ function buildBoard(){
     topBand.className = "fn-band fn-top";
     grid.appendChild(topBand);
 
+    // addCellTo: DOM追加 + scanItems 即push（通常用途）
     const addCellTo = (parent, opts) => {
       const c = document.createElement("div");
       c.className = opts.cls;
@@ -1434,15 +1440,38 @@ function buildBoard(){
       state.scanItems.push(item);
       return c;
     };
+    // makeCellDeferred: DOMだけ作って scanItem は呼び出し側でpushする
+    const makeCellDeferred = (parent, opts) => {
+      const c = document.createElement("div");
+      c.className = opts.cls;
+      c.textContent = opts.label;
+      parent.appendChild(c);
+      return Object.assign({}, opts, { el: c });
+    };
 
-    if (state.stage === "kanaChar"){
-      addCellTo(topBand, { label:"↩ もどる", cls:"cell back", evKind:"back",
-        onSelect: () => resetStage("kanaRow") });
+    // ───── 上部機能帯の中身を組み立て ─────
+    // kanaRow：「よむ」を先頭にスキャン。
+    // kanaChar：「もどる/よむ」は DOM だけ先に作り、scanItems は ROWS の active行 chars の後に追加して、
+    //           スキャン開始位置が各文字になるようにする（ユーザーフィードバック対応）。
+    const deferredTop = [];
+    if (state.stage === "kanaRow"){
+      addCellTo(topBand, { label:"🔊 よむ", cls:"cell read",
+        onSelect: yomuSelect });
+      callCells().forEach(it => addCellTo(topBand, it));
+    } else {
+      // kanaChar
+      const backItem = makeCellDeferred(topBand, {
+        label:"↩ もどる", cls:"cell back", evKind:"back",
+        onSelect: () => resetStage("kanaRow")
+      });
+      const yomuItem = makeCellDeferred(topBand, {
+        label:"🔊 よむ", cls:"cell read",
+        onSelect: yomuSelect
+      });
+      const callItems = callCells().map(it => makeCellDeferred(topBand, it));
+      // scanItems 末尾に追加する順序：A-1 → もどる → よむ
+      deferredTop.push(...callItems, backItem, yomuItem);
     }
-    addCellTo(topBand, { label:"🔊 よむ", cls:"cell read",
-      onSelect: () => { speak(); restartScan(); } });
-    // A-1（呼ぶ／はい／いいえ）— callShortcut=ON の時のみ
-    callCells().forEach(it => addCellTo(topBand, it));
 
     // 50音グリッド本体
     const kg = document.createElement("div");
@@ -1493,6 +1522,12 @@ function buildBoard(){
         }
       }
     });
+
+    // kanaChar：行の字をpushし終えた後に、上部機能セル（A-1, もどる, よむ）をスキャン末尾に追加。
+    // → 行を選んだ直後のハイライトは各文字から開始される。
+    if (state.stage === "kanaChar" && deferredTop.length){
+      state.scanItems.push(...deferredTop);
+    }
 
     // 下部機能帯（kanaRow のみ。kanaChar はミニマルに保つ）
     if (state.stage === "kanaRow"){
