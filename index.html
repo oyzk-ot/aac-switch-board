@@ -2,13 +2,14 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- 拡大操作（ダブルタップ／ピンチ）を禁止。誤操作で画面が拡大・縮小するのを防ぐ -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
 <meta name="theme-color" content="#15181d">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="U002 AAC">
 <!-- ビルド日時。scripts/build_single.py が置き換える（実機が最新版か確認するため） -->
-<meta name="app-build" content="2026-07-29 21:39">
+<meta name="app-build" content="2026-07-29 21:52">
 <title>U002 AAC</title>
 <link rel="apple-touch-icon" href="data:image/png;base64,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">
 <link rel="icon" type="image/png" href="data:image/png;base64,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">
@@ -25,12 +26,24 @@
 }
 *{ box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
 html,body{ margin:0; height:100%; width:100%; }
+html{
+  /* 端末の文字サイズ設定で勝手に拡大されないようにする（表示が揺れる原因） */
+  -webkit-text-size-adjust:100%; text-size-adjust:100%;
+}
 body{
   background:var(--bg); color:var(--ink); font-family:var(--fontstack);
   overflow:hidden; user-select:none; -webkit-user-select:none;
+  /* iOS のラバーバンド（画面全体が上下に揺れる動き）を止める */
+  position:fixed; inset:0;
+  overscroll-behavior:none;
+  /* ダブルタップ拡大を無効化し、タップの取りこぼしも防ぐ */
+  touch-action:manipulation;
 }
+/* 画面の高さは常に親（.screen＝画面いっぱい）基準にする。
+   100vh/100dvh は iOS でアドレスバーの出入りに合わせて変動し、起動時に
+   画面が伸び縮みして見える原因になるため使わない。 */
 .wrap{
-  height:100vh; height:100dvh; display:flex; flex-direction:column;
+  height:100%; display:flex; flex-direction:column;
   padding:12px; gap:10px; overflow:hidden;
 }
 .outbar{
@@ -54,6 +67,7 @@ body{
   font-size:var(--cell-fs); font-weight:600; color:var(--ink);
   text-align:center; padding:4px; overflow:hidden; cursor:pointer;
   transition: transform calc(.12s*var(--motion)), background .1s, border-color .1s;
+  touch-action:manipulation; /* ダブルタップ拡大を防ぐ */
 }
 .cell.kana{ background:var(--kana); border-color:var(--kana-line); color:var(--kana-ink); }
 .cell.fn{ font-size:calc(var(--cell-fs)*.6); color:var(--sub); background:#20262f; }
@@ -209,14 +223,16 @@ body{
 .screen{ position:absolute; inset:0; display:none; }
 .screen.on{ display:block; }
 .center{
-  height:100vh; height:100dvh; display:flex; flex-direction:column;
+  height:100%; display:flex; flex-direction:column;
   align-items:center; justify-content:center; gap:16px; padding:24px;
   text-align:center; overflow:auto;
+  overscroll-behavior:contain; /* 端まで来ても画面全体を揺らさない */
 }
 .menubtn{
   width:min(560px,90%); background:var(--cell); border:2px solid var(--cell-line);
   color:var(--ink); font-family:inherit; font-size:28px; font-weight:700;
   padding:20px; border-radius:var(--radius);
+  touch-action:manipulation;
 }
 .menubtn .s{ display:block; font-size:15px; color:var(--sub); font-weight:500; margin-top:6px; }
 h1.title{ font-size:28px; margin:0 0 6px; }
@@ -245,6 +261,7 @@ h1.title{ font-size:28px; margin:0 0 6px; }
 .setpanel{
   position:absolute; inset:0; background:#10131a; z-index:60; display:none;
   overflow:auto; padding:20px;
+  overscroll-behavior:contain; -webkit-overflow-scrolling:touch;
 }
 .setpanel.on{ display:block; }
 .setpanel h2{ margin:.2em 0 .6em; font-size:21px; }
@@ -786,9 +803,17 @@ function isSpeechConfirmed(){ return speechConfirmed; }
 let speechConfirmed = false;
 let unlockAttempts = 0;
 
+const UNLOCK_MAX_ATTEMPTS = 5;
+
 function unlockSpeech(){
-  // 実発話が確認できるまでは、ユーザー操作のたびに解錠を試みる
+  // 実発話が確認できるまでは、ユーザー操作のたびに解錠を試みる。
+  // ただし無制限に試すと発話が積み上がって鳴り続けるため、回数で打ち切る。
   if (speechConfirmed) return;
+  if (unlockAttempts >= UNLOCK_MAX_ATTEMPTS){
+    speechConfirmed = true; // これ以上試さない（実発話時に改めて確認される）
+    logTts("unlock-give-up", "上限に達したため打ち切り");
+    return;
+  }
   try {
     if (!("speechSynthesis" in window)) { logTts("unlock-skip", "no speechSynthesis"); return; }
     unlockAttempts++;
@@ -1159,32 +1184,40 @@ function paintScan(silent){
   if (S.scanTick) beep(440, 28, 0.04);
 }
 
+// スキャンの「世代」。stopScan のたびに進める。
+// 古い世代のタイマー連鎖は自分で気づいて止まるため、どんな経路で二重に
+// 立ち上がっても最終的に1本に収束する（カーソルが1つ飛ばしになる不具合の根本対策）。
+let scanGen = 0;
+
 function startScan(){
   stopScan();
+  const gen = scanGen;
   state.scanIdx = 0;
   state.loops = 0;
   state.locked = true;
-  // 初期遅延のタイマーも state.timer で管理する。
-  // 管理しないと、遅延中に restartScan が走った場合にスキャンの流れが二重に立ち上がり、
-  // カーソルが1つ飛ばしで進んでしまう。
   state.timer = setTimeout(() => {
+    if (gen !== scanGen) return; // 古い世代なら何もしない
     state.timer = null;
     state.locked = false;
     paintScan();
-    if (S.switchCount === 1 && S.mode === "A") autoTick();
+    if (S.switchCount === 1 && S.mode === "A") autoTick(gen);
   }, S.initialDelayMs);
 }
 
 function restartScan(){
   stopScan();
+  const gen = scanGen;
   state.scanIdx = 0;
   state.loops = 0;
   paintScan();
-  if (S.switchCount === 1 && S.mode === "A") autoTick();
+  if (S.switchCount === 1 && S.mode === "A") autoTick(gen);
 }
 
-function autoTick(){
+function autoTick(gen){
+  if (gen === undefined) gen = scanGen;
+  if (gen !== scanGen) return; // 古い世代の連鎖はここで途切れる
   state.timer = setTimeout(() => {
+    if (gen !== scanGen) return;
     state.scanIdx++;
     if (state.scanIdx >= state.scanItems.length){
       state.scanIdx = 0;
@@ -1199,11 +1232,12 @@ function autoTick(){
       }
     }
     paintScan();
-    autoTick();
+    autoTick(gen);
   }, S.scanIntervalMs);
 }
 
 function stopScan(){
+  scanGen++; // 走っている連鎖をすべて無効化
   if (state.timer){ clearTimeout(state.timer); state.timer = null; }
   if (state.dwellTimer){ clearTimeout(state.dwellTimer); state.dwellTimer = null; }
 }
@@ -1252,6 +1286,9 @@ const __M_screen_yesno = (() => {
 let ynIdx = 0;
 let ynTimer = null;
 let ynDwellTimer = null;
+// Yes/No スキャンの「世代」。ynStop のたびに進める。
+// これが無いと、決定→再スキャンのたびに連鎖が増え、読み上げが止まらなくなる。
+let ynGen = 0;
 
 // 他画面遷移時に「もどる」で home に戻すためのナビゲーション参照
 let goRef = null;
@@ -1268,26 +1305,33 @@ function ynPaint(){
 }
 
 function ynStop(){
+  ynGen++; // 走っている連鎖をすべて無効化
   if (ynTimer){ clearTimeout(ynTimer); ynTimer = null; }
   if (ynDwellTimer){ clearTimeout(ynDwellTimer); ynDwellTimer = null; }
 }
 
 function startYesNoScan(){
   ynStop();
+  const gen = ynGen;
   ynIdx = 0;
   state.locked = true;
-  setTimeout(() => {
+  ynTimer = setTimeout(() => {
+    if (gen !== ynGen) return; // 古い世代なら何もしない
+    ynTimer = null;
     state.locked = false;
     ynPaint();
-    if (S.switchCount === 1 && S.mode === "A") ynAutoTick();
+    if (S.switchCount === 1 && S.mode === "A") ynAutoTick(gen);
   }, S.initialDelayMs);
 }
 
-function ynAutoTick(){
+function ynAutoTick(gen){
+  if (gen === undefined) gen = ynGen;
+  if (gen !== ynGen) return;
   ynTimer = setTimeout(() => {
+    if (gen !== ynGen) return;
     ynIdx = (ynIdx + 1) % 2;
     ynPaint();
-    ynAutoTick();
+    ynAutoTick(gen);
   }, S.scanIntervalMs);
 }
 
@@ -1310,6 +1354,7 @@ function ynOnMove(){
 
 function ynCommit(){
   ynStop();
+  const gen = ynGen; // この決定に紐づく世代。画面を離れたら再スキャンしない。
   state.locked = true;
   const choice = ynIdx === 0 ? "yes" : "no";
   const word = choice === "yes"
@@ -1321,7 +1366,9 @@ function ynCommit(){
   // A-2 評価ログ・A-3 活性計測にも反映
   logEvent("yesno", { stage: "yn", label: word });
   noteActivation();
-  setTimeout(() => {
+  ynTimer = setTimeout(() => {
+    if (gen !== ynGen) return;      // 画面を離れた／別の操作が入った場合は再開しない
+    if (state.screen !== "yn") return;
     state.locked = false;
     startYesNoScan();
   }, Math.max(S.lockoutMs, 1500));
